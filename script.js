@@ -64,11 +64,8 @@ searchInput.addEventListener('input', async () => {
     suggestionBox.style.display = 'none';
   }
 });
-<<<<<<< HEAD
-=======
 
 var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', function() {
   // Do something with the selectedItems array
 });
->>>>>>> a986cf33e20f729a122cbc79db09a592c11ef586
