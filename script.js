@@ -9,8 +9,8 @@ async function searchFoodItemSuggestions(foodInput) {
 
   // Fetching data from API
   try {
-    const response = await fetch(apiURLspoonacular);
-    const suggestions = await response.json();
+    var response = await fetch(apiURLspoonacular);
+    var suggestions = await response.json();
     return suggestions;
   } catch (error) {
     console.error(error);
@@ -19,19 +19,19 @@ async function searchFoodItemSuggestions(foodInput) {
 }
 
 searchInput.addEventListener('input', async () => {
-  const searchTerm = searchInput.value.toLowerCase().trim();
+  var searchTerm = searchInput.value.toLowerCase().trim();
   suggestionBox.innerHTML = '';
 
   if (searchTerm) {
-    const suggestions = await searchFoodItemSuggestions(searchTerm);
+    var suggestions = await searchFoodItemSuggestions(searchTerm);
 
     if (suggestions.length > 0) {
       suggestionBox.style.display = 'block';
-      suggestions.forEach(suggestion => {
-        const suggestionItem = document.createElement('div');
+      suggestions.forEach(function(suggestion) {
+        var suggestionItem = document.createElement('div');
         suggestionItem.textContent = suggestion.name;
         suggestionItem.classList.add('suggestion-item');
-        suggestionItem.addEventListener('click', () => {
+        suggestionItem.addEventListener('click', function() {
           searchInput.value = suggestion.name;
           suggestionBox.style.display = 'none';
         });
@@ -44,6 +44,7 @@ searchInput.addEventListener('input', async () => {
     suggestionBox.style.display = 'none';
   }
 });
+
 
 
 
