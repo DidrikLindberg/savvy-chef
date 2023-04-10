@@ -25,14 +25,25 @@ searchInput.addEventListener('input', async () => {
   if (searchTerm) {
     var suggestions = await searchFoodItemSuggestions(searchTerm);
 
-    if (suggestions.length > 0) {
+    
+    var uniqueSuggestionNames = new Set();
+
+    
+    suggestions.forEach(function(suggestion) {
+      uniqueSuggestionNames.add(suggestion.name);
+    });
+
+    
+    var uniqueSuggestions = Array.from(uniqueSuggestionNames);
+
+    if (uniqueSuggestions.length > 0) {
       suggestionBox.style.display = 'block';
-      suggestions.forEach(function(suggestion) {
+      uniqueSuggestions.forEach(function(suggestionName) {
         var suggestionItem = document.createElement('div');
-        suggestionItem.textContent = suggestion.name;
+        suggestionItem.textContent = suggestionName;
         suggestionItem.classList.add('suggestion-item');
         suggestionItem.addEventListener('click', function() {
-          searchInput.value = suggestion.name;
+          searchInput.value = suggestionName;
           suggestionBox.style.display = 'none';
         });
         suggestionBox.appendChild(suggestionItem);
@@ -44,8 +55,6 @@ searchInput.addEventListener('input', async () => {
     suggestionBox.style.display = 'none';
   }
 });
-
-
 
 
 
