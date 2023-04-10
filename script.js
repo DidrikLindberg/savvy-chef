@@ -37,7 +37,7 @@ searchInput.addEventListener('input', async () => {
     var uniqueSuggestions = removeDuplicateSuggestions(suggestions);
 
     suggestionBox.style.display = 'none';
-    suggestionBox.innerHTML = ''; // Add this line to clear the suggestion box before appending new suggestions
+    suggestionBox.innerHTML = '';
 
     if (uniqueSuggestions.length > 0) {
       suggestionBox.style.display = 'block';
@@ -48,10 +48,10 @@ searchInput.addEventListener('input', async () => {
         suggestionItem.addEventListener('click', function() {
           searchInput.value = suggestion.name;
           suggestionBox.style.display = 'none';
-          if (!selectedItems.includes(suggestionName)) {
-            selectedItems.push(suggestionName);
+          if (!selectedItems.includes(suggestion.name)) {
+            selectedItems.push(suggestion.name);
             var selectedItem = document.createElement('div');
-            selectedItem.textContent = suggestionName;
+            selectedItem.textContent = suggestion.name;
             selectedItemsList.appendChild(selectedItem);
           }
         });
@@ -64,11 +64,8 @@ searchInput.addEventListener('input', async () => {
     suggestionBox.style.display = 'none';
   }
 });
-<<<<<<< HEAD
-=======
 
-var getRecipesButton = document.getElementById('get-recipes');
-getRecipesButton.addEventListener('click', function() {
-  // Do something with the selectedItems array
-});
->>>>>>> a986cf33e20f729a122cbc79db09a592c11ef586
+// var getRecipesButton = document.getElementById('get-recipes');
+// getRecipesButton.addEventListener('click', function() {
+//   // Do something with the selectedItems array
+// });
