@@ -1,13 +1,21 @@
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 
-// Function for search box auto suggest and search entry
+function removeDuplicateSuggestions(suggestions) {
+  var seen = new Set();
+  return suggestions.filter(function(suggestion) {
+    var lowerCaseName = suggestion.name.toLowerCase();
+    var isDuplicate = seen.has(lowerCaseName);
+    seen.add(lowerCaseName);
+    return !isDuplicate;
+  });
+}
+
+
 async function searchFoodItemSuggestions(foodInput) {
-  // Setting Spoonacular API key and URL
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
   var apiURLspoonacular = "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + foodInput + "&number=10&apiKey=" + spoonacularApiKey;
 
-  // Fetching data from API
   try {
     var response = await fetch(apiURLspoonacular);
     var suggestions = await response.json();
@@ -24,26 +32,19 @@ searchInput.addEventListener('input', async () => {
 
   if (searchTerm) {
     var suggestions = await searchFoodItemSuggestions(searchTerm);
+    var uniqueSuggestions = removeDuplicateSuggestions(suggestions);
 
-    
-    var uniqueSuggestionNames = new Set();
-
-    
-    suggestions.forEach(function(suggestion) {
-      uniqueSuggestionNames.add(suggestion.name);
-    });
-
-    
-    var uniqueSuggestions = Array.from(uniqueSuggestionNames);
+    suggestionBox.style.display = 'none';
+    suggestionBox.innerHTML = ''; // Add this line to clear the suggestion box before appending new suggestions
 
     if (uniqueSuggestions.length > 0) {
       suggestionBox.style.display = 'block';
-      uniqueSuggestions.forEach(function(suggestionName) {
+      uniqueSuggestions.forEach(function(suggestion) {
         var suggestionItem = document.createElement('div');
-        suggestionItem.textContent = suggestionName;
+        suggestionItem.textContent = suggestion.name;
         suggestionItem.classList.add('suggestion-item');
         suggestionItem.addEventListener('click', function() {
-          searchInput.value = suggestionName;
+          searchInput.value = suggestion.name;
           suggestionBox.style.display = 'none';
         });
         suggestionBox.appendChild(suggestionItem);
@@ -55,6 +56,3 @@ searchInput.addEventListener('input', async () => {
     suggestionBox.style.display = 'none';
   }
 });
-
-
-
