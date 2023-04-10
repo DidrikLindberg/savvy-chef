@@ -1,5 +1,7 @@
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
+var selectedItemsList = document.getElementById('selected-items-list');
+var selectedItems = [];
 
 // Function for search box auto suggest and search entry
 async function searchFoodItemSuggestions(foodInput) {
@@ -45,6 +47,12 @@ searchInput.addEventListener('input', async () => {
         suggestionItem.addEventListener('click', function() {
           searchInput.value = suggestionName;
           suggestionBox.style.display = 'none';
+          if (!selectedItems.includes(suggestionName)) {
+            selectedItems.push(suggestionName);
+            var selectedItem = document.createElement('div');
+            selectedItem.textContent = suggestionName;
+            selectedItemsList.appendChild(selectedItem);
+          }
         });
         suggestionBox.appendChild(suggestionItem);
       });
@@ -56,5 +64,7 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
-
-
+var getRecipesButton = document.getElementById('get-recipes');
+getRecipesButton.addEventListener('click', function() {
+  // Do something with the selectedItems array
+});
