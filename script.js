@@ -48,10 +48,10 @@ searchInput.addEventListener('input', async () => {
         suggestionItem.addEventListener('click', function() {
           searchInput.value = suggestion.name;
           suggestionBox.style.display = 'none';
-          if (!selectedItems.includes(suggestionName)) {
-            selectedItems.push(suggestionName);
+          if (!selectedItems.includes(suggestion.name)) {
+            selectedItems.push(suggestion.name);
             var selectedItem = document.createElement('div');
-            selectedItem.textContent = suggestionName;
+            selectedItem.textContent = suggestion.name;
             selectedItemsList.appendChild(selectedItem);
           }
         });
