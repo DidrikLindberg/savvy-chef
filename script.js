@@ -76,3 +76,53 @@ getRecipesButton.addEventListener('click', function() {
   // Do something with the selectedItems array
 });
 >>>>>>> 54d64cec690e76a775ed406b57694e9338f13233
+
+
+
+
+let accessToken = '';
+let expirationTime = 0;
+
+//Kroger api, is done with OAuth2 protocol for authentication, which requires an access token. Since it expires in 30 minutes this function sents a request for a new one before expiration. 
+async function getAccessToken() {
+  var clientId = 'recipepicker-10c9986c48c671640284d40976cd7e994572323350031644696';
+  var clientSecret = '7MqLtODQzHmZ6Qq_CGS5zE2JeSyGO84mXGRoKvoP';
+  var base64Credentials = btoa(`${clientId}:${clientSecret}`);
+
+  var response = await fetch('https://api.kroger.com/v1/connect/oauth2/token', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${base64Credentials}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: 'grant_type=client_credentials&scope=product.compact'
+  });
+
+  var data = await response.json();
+  accessToken = data.access_token;
+  expirationTime = Date.now() + (data.expires_in * 1000) - 60000;
+}
+
+async function ensureAccessToken() {
+  if (Date.now() >= expirationTime) {
+    await getAccessToken();
+  }
+}
+
+async function getProductData(searchTerm) {
+  await ensureAccessToken();
+
+  var response = await fetch(`https://api.kroger.com/v1/products?filter.term=${searchTerm}&filter.limit=10`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'Accept': 'application/json'
+    }
+  });
+
+  var data = await response.json();
+  console.log(data);
+}
+
+
+getProductData('apple');
