@@ -118,11 +118,44 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
-// var getRecipesButton = document.getElementById('get-recipes');
-// getRecipesButton.addEventListener('click', function() {
-//   // Do something with the selectedItems array
-// });
 var getRecipesButton = document.getElementById('get-recipes');
-getRecipesButton.addEventListener('click', function() {
-  // Do something with the selectedItems array
+getRecipesButton.addEventListener('click', async function() {
+  var selectedIngredients = selectedItems.join();
+  var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
+  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&apiKey=" + spoonacularApiKey;
+
+  try {
+    var response = await fetch(apiURLspoonacular);
+    var recipes = await response.json();
+    console.log(recipes);
+    console.log(recipes.results);
+
+    // Clear any previous recipe results
+    var resultsContainer = document.getElementById('suggested-recipes');
+    resultsContainer.innerHTML = '';
+
+    recipes.results.forEach(function(recipe) {
+      // Create a new element for the recipe
+      var recipeElement = document.createElement('div');
+      recipeElement.classList.add('recipe');
+
+      // Add the recipe image to the element
+      var recipeImage = document.createElement('img');
+      recipeImage.src = recipe.image;
+      recipeImage.alt = recipe.title;
+      recipeImage.classList.add('recipe-image');
+      recipeElement.appendChild(recipeImage);
+
+      // Add the recipe title to the element
+      var recipeTitle = document.createElement('h3');
+      recipeTitle.textContent = recipe.title;
+      recipeTitle.classList.add('recipe-title');
+      recipeElement.appendChild(recipeTitle);
+
+      // Add the recipe element to the results container
+      resultsContainer.appendChild(recipeElement);
+    });
+  } catch (error) {
+    console.error(error);
+  }
 });
