@@ -13,7 +13,6 @@ function removeDuplicateSuggestions(suggestions) {
   });
 }
 
-
 async function searchFoodItemSuggestions(foodInput) {
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
   var apiURLspoonacular = "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + foodInput + "&number=10&apiKey=" + spoonacularApiKey;
@@ -65,11 +64,18 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
-// var getRecipesButton = document.getElementById('get-recipes');
-// getRecipesButton.addEventListener('click', function() {
-//   // Do something with the selectedItems array
-// });
 var getRecipesButton = document.getElementById('get-recipes');
-getRecipesButton.addEventListener('click', function() {
-  // Do something with the selectedItems array
+getRecipesButton.addEventListener('click', async function() {
+  var selectedIngredients = selectedItems.join();
+  var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
+  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&apiKey=" + spoonacularApiKey;
+
+  try {
+    var response = await fetch(apiURLspoonacular);
+    var recipes = await response.json();
+    console.log(recipes);
+    // Do something with the recipes, such as displaying them on the page
+  } catch (error) {
+    console.error(error);
+  }
 });
