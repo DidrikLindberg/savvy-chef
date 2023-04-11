@@ -65,17 +65,6 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
-<<<<<<< HEAD
-// var getRecipesButton = document.getElementById('get-recipes');
-// getRecipesButton.addEventListener('click', function() {
-//   // Do something with the selectedItems array
-// });
-=======
-var getRecipesButton = document.getElementById('get-recipes');
-getRecipesButton.addEventListener('click', function() {
-  // Do something with the selectedItems array
-});
->>>>>>> 54d64cec690e76a775ed406b57694e9338f13233
 
 
 
@@ -122,10 +111,7 @@ async function getProductData(searchTerm) {
   console.log(data);
 }
 
-document.getElementById('search-button').addEventListener('click', () => {
-  const userInput = document.getElementById('user-input').value;
-  getProductData(userInput);
-});
+
 
 // // Get the input element for searching food items
 // var searchInput = document.getElementById('searched-input');
