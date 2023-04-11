@@ -68,13 +68,13 @@ var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', async function() {
   var selectedIngredients = selectedItems.join();
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
-  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&apiKey=" + spoonacularApiKey;
+  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey;
 
   try {
     var response = await fetch(apiURLspoonacular);
     var recipes = await response.json();
     console.log(recipes);
-    console.log(recipes.results);
+    console.log(response);
 
     // Clear any previous recipe results
     var resultsContainer = document.getElementById('suggested-recipes');
@@ -97,6 +97,17 @@ getRecipesButton.addEventListener('click', async function() {
       recipeTitle.textContent = recipe.title;
       recipeTitle.classList.add('recipe-title');
       recipeElement.appendChild(recipeTitle);
+
+// Add the recipe URL to the element
+var recipeURL = document.createElement('a');
+recipeURL.textContent = 'View Recipe';
+recipeURL.href = recipe.sourceUrl;
+recipeURL.classList.add('recipe-url');
+recipeURL.target = '_blank'; // open link in a new tab
+recipeElement.appendChild(recipeURL);
+
+// Add the recipe
+
 
       // Add the recipe element to the results container
       resultsContainer.appendChild(recipeElement);
