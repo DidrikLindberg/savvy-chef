@@ -13,7 +13,6 @@ function removeDuplicateSuggestions(suggestions) {
   });
 }
 
-
 async function searchFoodItemSuggestions(foodInput) {
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
   var apiURLspoonacular = "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + foodInput + "&number=10&apiKey=" + spoonacularApiKey;
@@ -65,9 +64,6 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
-
-
-
 let accessToken = '';
 let expirationTime = 0;
 
@@ -96,7 +92,7 @@ async function ensureAccessToken() {
   }
 }
 
-async function getProductData(searchTerm) {
+async function getProductData(searchTerm, price) {
   await ensureAccessToken();
 
   var response = await fetch(`https://api.kroger.com/v1/products?filter.term=${searchTerm}&filter.limit=10`, {
@@ -106,10 +102,25 @@ async function getProductData(searchTerm) {
       'Accept': 'application/json'
     }
   });
-
+  
   var data = await response.json();
-  console.log(data);
+  return data.data.filter(product => product.price <= price);
 }
+
+document.querySelectorAll('.cost-dropdown-item').forEach(item => {
+  item.addEventListener('click', async event => {
+    event.preventDefault();
+    const price = parseFloat(item.dataset.price);
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    if (searchTerm) {
+      const products = await getProductData(searchTerm, price);
+      console.log(products);
+    }
+  });
+});
+
+
+
 
 
 
