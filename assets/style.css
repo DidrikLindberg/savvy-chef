@@ -1,0 +1,62 @@
+.tile.is-child.box {
+    min-height: 500px;
+}
+
+#get-recipes {
+    width: 200px;
+    height: 30px;
+    font-size: larger;
+}
+
+#get-recipes {
+    position: relative;
+    top: 340px;
+    left: 200px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-toggle:hover {
+    background-color: #ebebeb;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 85px;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: smaller;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #eee;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  #menu {
+    display: flex;
+    flex-direction: column;
+  }
