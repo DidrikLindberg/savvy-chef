@@ -74,7 +74,33 @@ getRecipesButton.addEventListener('click', async function() {
     var response = await fetch(apiURLspoonacular);
     var recipes = await response.json();
     console.log(recipes);
-    // Do something with the recipes, such as displaying them on the page
+    console.log(recipes.results);
+
+    // Clear any previous recipe results
+    var resultsContainer = document.getElementById('suggested-recipes');
+    resultsContainer.innerHTML = '';
+
+    recipes.results.forEach(function(recipe) {
+      // Create a new element for the recipe
+      var recipeElement = document.createElement('div');
+      recipeElement.classList.add('recipe');
+
+      // Add the recipe image to the element
+      var recipeImage = document.createElement('img');
+      recipeImage.src = recipe.image;
+      recipeImage.alt = recipe.title;
+      recipeImage.classList.add('recipe-image');
+      recipeElement.appendChild(recipeImage);
+
+      // Add the recipe title to the element
+      var recipeTitle = document.createElement('h3');
+      recipeTitle.textContent = recipe.title;
+      recipeTitle.classList.add('recipe-title');
+      recipeElement.appendChild(recipeTitle);
+
+      // Add the recipe element to the results container
+      resultsContainer.appendChild(recipeElement);
+    });
   } catch (error) {
     console.error(error);
   }
