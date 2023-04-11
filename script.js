@@ -65,14 +65,11 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
-<<<<<<< HEAD
 // var getRecipesButton = document.getElementById('get-recipes');
 // getRecipesButton.addEventListener('click', function() {
 //   // Do something with the selectedItems array
 // });
-=======
 var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', function() {
   // Do something with the selectedItems array
 });
->>>>>>> 54d64cec690e76a775ed406b57694e9338f13233
