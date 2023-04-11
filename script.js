@@ -40,13 +40,11 @@ filterCheckboxes.forEach(checkbox => {
     const selectedFiltersList = document.getElementById('selected-filters-list');
     
     if (event.target.checked) {
-      // Add the filter item to the selected filters list if the checkbox is checked
       if (!selectedFiltersList.querySelector(`li[data-filter="${filterText}"]`)) {
         filterItem.setAttribute('data-filter', filterText);
         selectedFiltersList.appendChild(filterItem);
       }
     } else {
-      // Remove the filter item from the selected filters list if the checkbox is unchecked
       const existingFilterItem = selectedFiltersList.querySelector(`li[data-filter="${filterText}"]`);
       if (existingFilterItem) {
         selectedFiltersList.removeChild(existingFilterItem);
