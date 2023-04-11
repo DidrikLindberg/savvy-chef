@@ -29,10 +29,17 @@
           </div>
         </div>
         <div class="tile is-parent is-6">
-          <div class="tile is-child box selected-items" id="selected-items-list">
-            <p class="title" id="selected-ingredients-title">Current ingredients and parameters</p>
-            <h2>Selected Items:</h2>
-            <ul></ul>
+          <div class="tile is-child box selected-items" >
+            <div class="current-flex">
+              <div class="current-ingredients">
+                <p class="title">Current ingredients</p>
+                <ul id="selected-items-list"></ul>
+              </div>
+              <div class="current-filters">
+                <p class="title">Current filters</p>
+                <ul id="selected-filters-list"></ul>
+              </div>
+            </div>
             <button id="get-recipes">Get Recipes</button>
           </div>
         </div>
@@ -41,45 +48,330 @@
             <p class="title">Filters</p>
             <div id="menu">
               <div class="dropdown">
-                <button class="dropdown-toggle">Dietary Restriction</button>
+                <button class="dropdown-toggle">Diets</button>
                 <div class="dropdown-menu">
-                  <a href="#">Option 1</a>
-                  <a href="#">Option 2</a>
-                  <a href="#">Option 3</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Gluten free</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Ketogenic</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Ketogenic</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Vegetarian</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Vegan</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Pescatarian</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Paleo</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Primal</span>
+                    </label>
+                  </a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropdown-toggle">Intolerances</button>
+                <div class="dropdown-menu">
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Dairy</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Eggs</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Grains</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Peanuts</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Shellfish</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Soy</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Sulfites</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropdown-toggle">Cost</button>
                 <div class="dropdown-menu">
-                  <a href="#">Less than $5 per serving</a>
-                  <a href="#">Less than $10 per serving</a>
-                  <a href="#">Less than $15 per serving</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $5 per serving</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $10 per serving</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $15 per serving</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropdown-toggle">Prep Time</button>
                 <div class="dropdown-menu">
-                  <a href="#">Less than 20 minutes</a>
-                  <a href="#">Less than 40 minutes</a>
-                  <a href="#">Less than 1 hour</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 20 minutes</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 40 minutes</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 60 minutes</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropdown-toggle">Cuisine</button>
                 <div class="dropdown-menu">
-                  <a href="#">Option 1</a>
-                  <a href="#">Option 2</a>
-                  <a href="#">Option 3</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>African</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>American</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>British</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Chinese</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Caribbean</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Eastern European</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>European</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>French</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>German</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Greek</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Indian</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Irish</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Italian</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Japanese</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Jewish</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Korean</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Latin American</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Mediterranean</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Mexican</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Middle Eastern</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Nordic</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Southern</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Spanish</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Thai</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Vietnamese</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropdown-toggle">Difficulty</button>
                 <div class="dropdown-menu">
-                  <a href="#">Option 1</a>
-                  <a href="#">Option 2</a>
-                  <a href="#">Option 3</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Easy</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Medium</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Hard</span>
+                    </label>
+                  </a>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
