@@ -1,3 +1,8 @@
+.hero-body {
+    background-color: rgba(70, 62, 227, 0.658);
+}
+
+
 .tile.is-child.box {
     min-height: 500px;
 }
@@ -10,8 +15,6 @@
 
 #get-recipes {
     position: relative;
-    top: 340px;
-    left: 200px;
 }
 
 .dropdown {
@@ -37,12 +40,12 @@
     left: 85px;
     display: none;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
   }
   
   .dropdown-menu a {
     display: block;
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
     color: #333;
     font-size: smaller;
@@ -59,4 +62,56 @@
   #menu {
     display: flex;
     flex-direction: column;
+  }
+
+  .dropdown-menu {
+    max-height: 350px;
+    overflow-y: auto; 
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+  }
+  
+  .dropdown-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .current-flex {
+    display: flex;
+  }
+
+  .current-filters {
+    margin: auto;
+    text-align: center;
+  }
+
+  .current-ingredients {
+    margin: auto;
+    text-align: center;
+  }
+
+  .selected-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  #selected-items-list button {
+    align-self: center;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .current-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+  .current-filters {
+    justify-self: end;
   }
