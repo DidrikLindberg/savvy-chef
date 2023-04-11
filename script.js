@@ -79,11 +79,9 @@ getRecipesButton.addEventListener('click', function() {
 
 
 
-
 let accessToken = '';
 let expirationTime = 0;
 
-//Kroger api, is done with OAuth2 protocol for authentication, which requires an access token. Since it expires in 30 minutes this function sents a request for a new one before expiration. 
 async function getAccessToken() {
   var clientId = 'recipepicker-10c9986c48c671640284d40976cd7e994572323350031644696';
   var clientSecret = '7MqLtODQzHmZ6Qq_CGS5zE2JeSyGO84mXGRoKvoP';
@@ -124,5 +122,8 @@ async function getProductData(searchTerm) {
   console.log(data);
 }
 
+document.getElementById('search-button').addEventListener('click', () => {
+  const userInput = document.getElementById('user-input').value;
+  getProductData(userInput);
+});
 
-getProductData('apple');
