@@ -28,8 +28,32 @@ inputField.addEventListener('keydown', function(event) {
   }
 });
 
+const filterCheckboxes = document.querySelectorAll('input[type="checkbox"]');
 
-
+filterCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const filterText = event.target.parentNode.querySelector('span').textContent;
+    
+    const filterItem = document.createElement('li');
+    filterItem.textContent = filterText;
+    
+    const selectedFiltersList = document.getElementById('selected-filters-list');
+    
+    if (event.target.checked) {
+      // Add the filter item to the selected filters list if the checkbox is checked
+      if (!selectedFiltersList.querySelector(`li[data-filter="${filterText}"]`)) {
+        filterItem.setAttribute('data-filter', filterText);
+        selectedFiltersList.appendChild(filterItem);
+      }
+    } else {
+      // Remove the filter item from the selected filters list if the checkbox is unchecked
+      const existingFilterItem = selectedFiltersList.querySelector(`li[data-filter="${filterText}"]`);
+      if (existingFilterItem) {
+        selectedFiltersList.removeChild(existingFilterItem);
+      }
+    }
+  });
+});
 
 async function searchFoodItemSuggestions(foodInput) {
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
@@ -68,7 +92,21 @@ searchInput.addEventListener('input', async () => {
           if (!selectedItems.includes(suggestion.name)) {
             selectedItems.push(suggestion.name);
             var selectedItem = document.createElement('div');
+            selectedItem.classList.add('selected-item');
             selectedItem.textContent = suggestion.name;
+          
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'x';
+            deleteButton.classList.add('delete-button');
+            deleteButton.addEventListener('click', function() {
+              var index = selectedItems.indexOf(suggestion.name);
+              if (index > -1) {
+                selectedItems.splice(index, 1);
+              }
+              selectedItem.remove();
+            });
+            
+            selectedItem.appendChild(deleteButton);
             selectedItemsList.appendChild(selectedItem);
           }
         });

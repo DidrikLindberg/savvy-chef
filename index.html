@@ -37,7 +37,7 @@
               </div>
               <div class="current-filters">
                 <p class="title">Current filters</p>
-                <ul></ul>
+                <ul id="selected-filters-list"></ul>
               </div>
             </div>
             <button id="get-recipes">Get Recipes</button>
@@ -150,17 +150,47 @@
               <div class="dropdown">
                 <button class="dropdown-toggle">Cost</button>
                 <div class="dropdown-menu">
-                  <a href="#">Less than $5 per serving</a>
-                  <a href="#">Less than $10 per serving</a>
-                  <a href="#">Less than $15 per serving</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $5 per serving</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $10 per serving</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $15 per serving</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropdown-toggle">Prep Time</button>
                 <div class="dropdown-menu">
-                  <a href="#">Less than 20 minutes</a>
-                  <a href="#">Less than 40 minutes</a>
-                  <a href="#">Less than 60 minutes</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 20 minutes</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 40 minutes</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 60 minutes</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               <div class="dropdown">
@@ -321,9 +351,24 @@
               <div class="dropdown">
                 <button class="dropdown-toggle">Difficulty</button>
                 <div class="dropdown-menu">
-                  <a href="#">Easy</a>
-                  <a href="#">Medium</a>
-                  <a href="#">Hard</a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Easy</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Medium</span>
+                    </label>
+                  </a>
+                  <a href="#">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Hard</span>
+                    </label>
+                  </a>
                 </div>
               </div>
               

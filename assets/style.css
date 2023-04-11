@@ -112,4 +112,6 @@
     cursor: pointer;
   }
 
-  
+  .delete-button {
+    margin-left: 5px;
+  }
