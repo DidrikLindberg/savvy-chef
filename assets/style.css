@@ -145,5 +145,33 @@
     display: flex;
     flex-direction: column;
   }
-
+  
+  .recipe {
+    display: flex;
+    align-items: flex-start;
+  }
+  .recipe + .recipe {
+    margin-top: 40px;
+  }
+  
+  .recipe-img-title-container {
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .recipe-img-title-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .recipe-info-container {
+    width: 80%;
+    margin-left: 20px;
+  }
+  
+  .recipe-title {
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+  }
   
