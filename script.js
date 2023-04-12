@@ -170,3 +170,47 @@ recipeElement.appendChild(recipeURL);
     console.error(error);
   }
 });
+
+
+var cocktailTile = document.getElementById('suggested-cocktail');
+const button = document.querySelector('#get-cocktails');
+var recipeTile = document.querySelector('#suggested-recipes');
+
+// cocktailTile.style.display = 'none';
+
+// Attach a click event listener to the button
+button.addEventListener('click', () => {
+  recipeTile.classList.add('is-6');
+  cocktailTile.style.display = '';
+  fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const cocktailName = data.drinks[0].strDrink;
+      const ingredient1 = data.drinks[0].strIngredient1;
+      const ingredient2 = data.drinks[0].strIngredient2;
+      const ingredient3 = data.drinks[0].strIngredient3;
+      const ingredient4 = data.drinks[0].strIngredient4;
+      const ingredient5 = data.drinks[0].strIngredient5;
+      const ingredient6 = data.drinks[0].strIngredient6;
+      const instructions = data.drinks[0].strInstructions;
+      const image = data.drinks[0].strDrinkThumb;
+
+      document.getElementById('cocktail-name').textContent = cocktailName;
+      document.getElementById('ingredient1').textContent = ingredient1;
+      document.getElementById('ingredient1-amount').textContent = data.drinks[0].strMeasure1;
+      document.getElementById('ingredient2').textContent = ingredient2;
+      document.getElementById('ingredient2-amount').textContent = data.drinks[0].strMeasure2;
+      document.getElementById('ingredient3').textContent = ingredient3;
+      document.getElementById('ingredient3-amount').textContent = data.drinks[0].strMeasure3;
+      document.getElementById('ingredient4').textContent = ingredient4;
+      document.getElementById('ingredient4-amount').textContent = data.drinks[0].strMeasure4;
+      document.getElementById('ingredient5').textContent = ingredient5;
+      document.getElementById('ingredient5-amount').textContent = data.drinks[0].strMeasure5;
+      document.getElementById('ingredient6').textContent = ingredient6;
+      document.getElementById('ingredient6-amount').textContent = data.drinks[0].strMeasure6;
+      document.getElementById('cocktail-instructions').textContent = instructions;
+      document.getElementById('cocktail-image').src = image;
+    })
+    .catch(error => console.error(error));
+});
