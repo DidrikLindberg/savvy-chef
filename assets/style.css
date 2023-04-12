@@ -4,7 +4,7 @@
 
 
 .tile.is-child.box {
-    min-height: 500px;
+    min-height: 24rem;
 }
 
 
@@ -18,16 +18,16 @@
 
 #get-recipes {
 
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     width: 70%;
-    height: 40px;
+    height: 2.5rem;
     font-size: larger;
 }
 
 #get-cocktails {
-  margin-bottom: 20px;
-  margin-left: 5px;
-  height: 40px;
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+  height: 2.5rem;
 }
 
 .dropdown {
@@ -36,11 +36,11 @@
   }
   
   .dropdown-toggle {
-    padding: 10px;
+    padding: .5rem;
     background-color: #ffffff;
     border: none;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: .5rem;
   }
 
   .dropdown-toggle:hover {
@@ -50,7 +50,7 @@
   .dropdown-menu {
     position: absolute;
     top: 0;
-    left: 85px;
+    left: 5.5rem;
     display: none;
     background-color: #fff;
     box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
@@ -58,7 +58,7 @@
   
   .dropdown-menu a {
     display: block;
-    padding: 5px;
+    padding: .25rem;
     text-decoration: none;
     color: #333;
     font-size: smaller;
@@ -78,18 +78,18 @@
   }
 
   .dropdown-menu {
-    max-height: 350px;
+    max-height: 20rem;
     overflow-y: auto; 
   }
   
   .dropdown-item {
     display: flex;
     align-items: center;
-    font-size: 13px;
+    font-size: .8rem;
   }
   
   .dropdown-item input[type="checkbox"] {
-    margin-right: 10px;
+    margin-right: .5rem;
   }
 
   .current-flex {
@@ -117,7 +117,6 @@
   .current-flex {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
   }
   
   .suggestion-item:hover {
@@ -126,16 +125,12 @@
   }
 
   .delete-button {
-    margin-left: 5px;
-  }
-
-  #suggested-recipes {
-    margin-right: 10px;
+    margin-left: .5rem;
   }
 
   #cocktail-image {
-    max-width: 200px;
-    margin: 10px;
+    max-width: 15rem;
+    margin: .5rem;
   }
 
   .inline {
