@@ -21,32 +21,14 @@
     </div>
   </section>
       <div class="tile is-ancestor">
-        <div class="tile is-parent is-3">
+        <div class="tile is-parent is-6">
           <div class="tile is-child box search-container">
             <p class="title">Add ingredients</p>
             <input type="text" id="searched-input" placeholder="Search ingredients..." autocomplete="off">
-       <div id="suggested-item" class="suggestion-box"></div>
+            <div id="suggested-item" class="suggestion-box"></div>
           </div>
         </div>
         <div class="tile is-parent is-6">
-          <div class="tile is-child box selected-items" >
-            <div class="current-flex">
-              <div class="current-ingredients">
-                <p class="title">Current ingredients</p>
-                <ul id="selected-items-list"></ul>
-              </div>
-              <div class="current-filters">
-                <p class="title">Current filters</p>
-                <ul id="selected-filters-list"></ul>
-              </div>
-            </div>
-            <div id="get-buttons">
-              <button id="get-recipes">Get Recipes</button>
-              <button id="get-cocktails">I want a drink</button>
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent is-3">
           <div class="tile is-child box filters">
             <p class="title">Filters</p>
             <div id="menu">
@@ -281,14 +263,33 @@
         </div>
       </div>
       <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <div class="tile is-child is-12 box selected-items" >
+          <div class="current-flex">
+            <div class="current-ingredients">
+              <p class="title">Current ingredients</p>
+              <ul id="selected-items-list"></ul>
+            </div>
+            <div class="current-filters">
+              <p class="title">Current filters</p>
+              <ul id="selected-filters-list"></ul>
+            </div>
+          </div>
+          <div id="get-buttons">
+            <button id="get-recipes">Get Recipes</button>
+            <button id="get-cocktails">I want a drink</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="tile is-ancestor">
         <div class="tile is-parent is-12" id="recipes-parent">
           <div class="tile is-child box" id="suggested-recipes">
             <p class="title">Suggested recipes</p>
-            <p>Put your content here.</p>
           </div>
           <div class="tile is-child box is-4" id="suggested-cocktail">
             <p class="title">Suggested cocktail</p>
-            <p>Name: <span id="cocktail-name"></span></p>
+            <p id="cocktail-name"></p>
             <div class="inline"><p id="ingredient1-amount"></p><p id="ingredient1"></p></div>
             <div class="inline"><p id="ingredient2-amount"></p><p id="ingredient2"></p></div>
             <div class="inline"><p id="ingredient3-amount"></p><p id="ingredient3"></p></div>
