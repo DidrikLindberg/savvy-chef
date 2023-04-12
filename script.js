@@ -200,11 +200,10 @@ ingredientInput.addEventListener("blur", handleIngredientInputChange);
 // Add click event listener to the 'Get Recipes' button
 var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', async function() {
-  var selectedIngredients = selectedItems.join
-  // Join selected ingredients into a comma-separated string
   var selectedIngredients = selectedItems.join();
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
-  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey;
+  var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
+  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&apiKey=" + spoonacularApiKey;
 
   try {
     var response = await fetch(apiURLspoonacular);
@@ -248,6 +247,23 @@ getRecipesButton.addEventListener('click', async function() {
     console.error(error);
   }
 });
+
+const intoleranceCheckboxes = document.querySelectorAll('#intolerance-dropdown input[type="checkbox"]');
+let intolerances = [];
+intoleranceCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const intoleranceText = event.target.parentNode.querySelector('span').textContent.replace('No ', '').toLowerCase();
+    if (event.target.checked) {
+      intolerances.push(intoleranceText);
+    } else {
+      const index = intolerances.indexOf(intoleranceText);
+      if (index !== -1) {
+        intolerances.splice(index, 1);
+      }
+    }
+  });
+});
+
 
 // Initialize the cocktail tile and button
 var cocktailTile = document.getElementById('suggested-cocktail');
