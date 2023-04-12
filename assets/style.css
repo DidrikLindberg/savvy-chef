@@ -1,5 +1,7 @@
 .hero-body {
+
     background-color: rgba(70, 62, 227, 0.658);
+
 }
 
 .logo {
@@ -7,19 +9,23 @@
 }
 
 .tile.is-child.box {
+
     min-height: 24rem;
+
 }
 
-
 #get-buttons {
+
   display: inline-flex;
     position: relative;
     align-self: center;
     width: 100%;
     justify-content: center;
+
 }
 
 #get-recipes {
+
 
     margin-bottom: 1rem;
     width: 70%;
@@ -144,6 +150,7 @@
     flex-direction: column;
   }
 
+
   #cocktail-name {
     font-weight: bold;
   }
@@ -160,3 +167,4 @@
       min-width: 768px;
     }
   }
+
