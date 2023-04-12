@@ -122,7 +122,7 @@ var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', async function() {
   var selectedIngredients = selectedItems.join();
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
-  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey;
+  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey + "&query=-foodista.com";
 
   try {
     var response = await fetch(apiURLspoonacular);
