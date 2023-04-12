@@ -4,6 +4,9 @@
 
 }
 
+.logo {
+  width: 15rem;
+}
 
 .tile.is-child.box {
 
@@ -62,7 +65,7 @@
     box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
   }
   
-  .dropdown-menu a {
+  .dropdown-menu label {
     display: block;
     padding: .25rem;
     text-decoration: none;
@@ -70,7 +73,7 @@
     font-size: smaller;
   }
   
-  .dropdown-menu a:hover {
+  .dropdown-menu label:hover {
     background-color: #eee;
   }
   
@@ -120,11 +123,6 @@
     justify-content: space-between;
   }
 
-  .current-flex {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  
   .suggestion-item:hover {
     background-color: #eee;
     cursor: pointer;
@@ -152,5 +150,21 @@
     flex-direction: column;
   }
 
-  
+
+  #cocktail-name {
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    #recipes-parent {
+      display: flex;
+      flex-wrap: wrap-reverse;
+    }
+    #suggested-cocktail {
+      height: auto;
+    }
+    #suggested-recipes {
+      min-width: 768px;
+    }
+  }
 

@@ -11,25 +11,259 @@
   <section class="hero is-primary">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
-          savvy chef
-        </h1>
-        <h2 class="subtitle">
-          our slogan
-        </h2>
+        <img class="logo" src="./assets/savvy-chef-logo.png">
+
       </div>
     </div>
   </section>
       <div class="tile is-ancestor">
-        <div class="tile is-parent is-3">
+        <div class="tile is-parent is-6">
           <div class="tile is-child box search-container">
             <p class="title">Add ingredients</p>
             <input type="text" id="searched-input" placeholder="Search ingredients..." autocomplete="off">
-       <div id="suggested-item" class="suggestion-box"></div>
+            <div id="suggested-item" class="suggestion-box"></div>
           </div>
         </div>
         <div class="tile is-parent is-6">
-          <div class="tile is-child box selected-items" >
+          <div class="tile is-child box filters">
+            <p class="title">Filters</p>
+            <div id="menu">
+              <div class="dropdown">
+                <button class="dropdown-toggle">Diets</button>
+                <div class="dropdown-menu">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Gluten free</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Ketogenic</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Ketogenic</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Vegetarian</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Vegan</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Pescatarian</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Paleo</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Primal</span>
+                    </label>
+                </div>
+              </div>
+
+              <div class="dropdown" id="intolerance-dropdown">
+
+                <button class="dropdown-toggle">Intolerances</button>
+                <div class="dropdown-menu">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Dairy</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Eggs</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Grains</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Peanuts</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Shellfish</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Soy</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>No Sulfites</span>
+                    </label>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropdown-toggle">Cost</button>
+                <div class="dropdown-menu">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $5 per serving</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $10 per serving</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than $15 per serving</span>
+                    </label>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropdown-toggle">Prep Time</button>
+                <div class="dropdown-menu">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 20 minutes</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 40 minutes</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Less than 60 minutes</span>
+                    </label>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropdown-toggle">Cuisine</button>
+                <div class="dropdown-menu">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>African</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>American</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>British</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Chinese</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Caribbean</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Eastern European</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>European</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>French</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>German</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Greek</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Indian</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Irish</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Italian</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Japanese</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Jewish</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Korean</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Latin American</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Mediterranean</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Mexican</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Middle Eastern</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Nordic</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Southern</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Spanish</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Thai</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Vietnamese</span>
+                    </label>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropdown-toggle">Difficulty</button>
+                <div class="dropdown-menu">
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Easy</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Medium</span>
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox">
+                      <span>Hard</span>
+                    </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <div class="tile is-child is-12 box selected-items" >
             <div class="current-flex">
               <div class="current-ingredients">
                 <p class="title">Current ingredients</p>
@@ -46,353 +280,16 @@
             </div>
           </div>
         </div>
-        <div class="tile is-parent is-3">
-
-          <div class="tile is-child box filters">
-
-            <p class="title">Filters</p>
-            <div id="menu">
-              <div class="dropdown">
-                <button class="dropdown-toggle">Diets</button>
-                <div class="dropdown-menu">
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Gluten free</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Ketogenic</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Ketogenic</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Vegetarian</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Vegan</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Pescatarian</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Paleo</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Primal</span>
-                    </label>
-                  </a>
-                </div>
-              </div>
-
-              <div class="dropdown" id="intolerance-dropdown">
-
-                <button class="dropdown-toggle">Intolerances</button>
-                <div class="dropdown-menu">
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Dairy</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Eggs</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Grains</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Peanuts</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Shellfish</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Soy</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>No Sulfites</span>
-                    </label>
-                  </a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Cost</button>
-                <div class="dropdown-menu">
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $5 per serving</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $10 per serving</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $15 per serving</span>
-                    </label>
-                  </a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Prep Time</button>
-                <div class="dropdown-menu">
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than 20 minutes</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than 40 minutes</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than 60 minutes</span>
-                    </label>
-                  </a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Cuisine</button>
-                <div class="dropdown-menu">
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>African</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>American</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>British</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Chinese</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Caribbean</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Eastern European</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>European</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>French</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>German</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Greek</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Indian</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Irish</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Italian</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Japanese</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Jewish</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Korean</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Latin American</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Mediterranean</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Mexican</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Middle Eastern</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Nordic</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Southern</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Spanish</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Thai</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Vietnamese</span>
-                    </label>
-                  </a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Difficulty</button>
-                <div class="dropdown-menu">
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Easy</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Medium</span>
-                    </label>
-                  </a>
-                  <a href="#">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Hard</span>
-                    </label>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="tile is-ancestor">
+      <div class="tile is-ancestor recipes-container">
         <div class="tile is-parent is-12" id="recipes-parent">
           <div class="tile is-child box" id="suggested-recipes">
             <p class="title">Suggested recipes</p>
-            <p>Put your content here.</p>
           </div>
 
           <div class="tile is-child box is-4" id="suggested-cocktail">
             <p class="title">Suggested cocktail</p>
-            <p>Name: <span id="cocktail-name"></span></p>
+            <p id="cocktail-name"></p>
             <div class="inline"><p id="ingredient1-amount"></p><p id="ingredient1"></p></div>
             <div class="inline"><p id="ingredient2-amount"></p><p id="ingredient2"></p></div>
             <div class="inline"><p id="ingredient3-amount"></p><p id="ingredient3"></p></div>
