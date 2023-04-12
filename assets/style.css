@@ -2,6 +2,9 @@
     background-color: rgba(70, 62, 227, 0.658);
 }
 
+.logo {
+  width: 15rem;
+}
 
 .tile.is-child.box {
     min-height: 24rem;
