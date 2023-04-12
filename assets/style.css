@@ -145,3 +145,15 @@
     font-weight: bold;
   }
 
+  @media screen and (max-width: 768px) {
+    #recipes-parent {
+      display: flex;
+      flex-wrap: wrap-reverse;
+    }
+    #suggested-cocktail {
+      height: auto;
+    }
+    #suggested-recipes {
+      min-width: 768px;
+    }
+  }
