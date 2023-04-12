@@ -176,10 +176,16 @@ var cocktailTile = document.getElementById('suggested-cocktail');
 const button = document.querySelector('#get-cocktails');
 var recipeTile = document.querySelector('#suggested-recipes');
 
-// cocktailTile.style.display = 'none';
+cocktailTile.style.display = 'none';
 
 // Attach a click event listener to the button
 button.addEventListener('click', () => {
+  document.getElementById('ingredient1').textContent = "";
+  document.getElementById('ingredient2').textContent = "";
+  document.getElementById('ingredient3').textContent = "";
+  document.getElementById('ingredient4').textContent = "";
+  document.getElementById('ingredient5').textContent = "";
+  document.getElementById('ingredient6').textContent = "";
   recipeTile.classList.add('is-6');
   cocktailTile.style.display = '';
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
@@ -197,18 +203,19 @@ button.addEventListener('click', () => {
       const image = data.drinks[0].strDrinkThumb;
 
       document.getElementById('cocktail-name').textContent = cocktailName;
-      document.getElementById('ingredient1').textContent = ingredient1;
-      document.getElementById('ingredient1-amount').textContent = data.drinks[0].strMeasure1;
-      document.getElementById('ingredient2').textContent = ingredient2;
-      document.getElementById('ingredient2-amount').textContent = data.drinks[0].strMeasure2;
-      document.getElementById('ingredient3').textContent = ingredient3;
-      document.getElementById('ingredient3-amount').textContent = data.drinks[0].strMeasure3;
-      document.getElementById('ingredient4').textContent = ingredient4;
-      document.getElementById('ingredient4-amount').textContent = data.drinks[0].strMeasure4;
-      document.getElementById('ingredient5').textContent = ingredient5;
-      document.getElementById('ingredient5-amount').textContent = data.drinks[0].strMeasure5;
-      document.getElementById('ingredient6').textContent = ingredient6;
-      document.getElementById('ingredient6-amount').textContent = data.drinks[0].strMeasure6;
+      if (data.drinks[0].strIngredient1) {
+      document.getElementById('ingredient1').textContent = data.drinks[0].strMeasure1 + " " + ingredient1;}
+      if (data.drinks[0].strIngredient2) {
+      document.getElementById('ingredient2').textContent = data.drinks[0].strMeasure2 + " " + ingredient2;}
+      if (data.drinks[0].strIngredient3) {
+      document.getElementById('ingredient3').textContent = data.drinks[0].strMeasure3 + " " + ingredient3;}
+      if (data.drinks[0].strIngredient4) {
+      document.getElementById('ingredient4').textContent = data.drinks[0].strMeasure4 + " " + ingredient4;}
+      if (data.drinks[0].strIngredient5) {
+      document.getElementById('ingredient5').textContent = data.drinks[0].strMeasure5 + " " + ingredient5;}
+      if (data.drinks[0].strIngredient6) {
+      document.getElementById('ingredient6').textContent = data.drinks[0].strMeasure6 + " " + ingredient6;}
+
       document.getElementById('cocktail-instructions').textContent = instructions;
       document.getElementById('cocktail-image').src = image;
     })

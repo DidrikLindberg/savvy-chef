@@ -133,4 +133,6 @@
     margin-right: 10px;
   }
 
-  
+  #cocktail-image {
+    max-width: 200px;
+  }
