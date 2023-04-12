@@ -95,13 +95,20 @@ function isIngredientValid(ingredient) {
 }
 
 // Function to fetch food item suggestions from Spoonacular API
+
+const searchedIngredients = {};
 async function searchFoodItemSuggestions(foodInput) {
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
+  if (foodInput in searchedIngredients) {
+    return searchedIngredients[foodInput];
+  }
   var apiURLspoonacular = "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + foodInput + "&number=10&apiKey=" + spoonacularApiKey;
 
   try {
     var response = await fetch(apiURLspoonacular);
     var suggestions = await response.json();
+     // Add the suggestions to the object/map
+     searchedIngredients[foodInput] = suggestions;
     return suggestions;
   } catch (error) {
     console.error(error);
