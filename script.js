@@ -1,4 +1,9 @@
-// Get the input field, suggestion box, and selected items list elements
+
+
+
+
+
+
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
