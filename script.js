@@ -2,7 +2,7 @@ var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
 var selectedItems = [];
-var recipesTile = document.getElementById('suggested-recipes');
+var resultsContainer = document.getElementById('suggested-recipes');
 
 function removeDuplicateSuggestions(suggestions) {
   var seen = new Set();
@@ -119,8 +119,11 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
+resultsContainer.style.display = 'none';
+
 var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', async function() {
+  resultsContainer.style.display = "";
   var selectedIngredients = selectedItems.join();
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
   var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey;
@@ -132,7 +135,8 @@ getRecipesButton.addEventListener('click', async function() {
     console.log(response);
 
     // Clear any previous recipe results
-    var resultsContainer = document.getElementById('suggested-recipes');
+    // moved resultsContainer to global variable
+    // var resultsContainer = document.getElementById('suggested-recipes');
     resultsContainer.innerHTML = '';
 
     recipes.results.forEach(function(recipe) {
@@ -179,7 +183,7 @@ var recipeTile = document.querySelector('#suggested-recipes');
 
 cocktailTile.style.display = 'none';
 
-button.addEventListener('click', () => {
+button.addEventListener('click', function () {
   document.getElementById('ingredient1').textContent = "";
   document.getElementById('ingredient2').textContent = "";
   document.getElementById('ingredient3').textContent = "";
