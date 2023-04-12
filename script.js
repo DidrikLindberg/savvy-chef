@@ -205,6 +205,7 @@ getRecipesButton.addEventListener('click', async function() {
   var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
   var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&apiKey=" + spoonacularApiKey;
 
+
   try {
     var response = await fetch(apiURLspoonacular);
     var recipes = await response.json();
@@ -249,6 +250,11 @@ getRecipesButton.addEventListener('click', async function() {
 });
 
 const intoleranceCheckboxes = document.querySelectorAll('#intolerance-dropdown input[type="checkbox"]');
+
+
+
+
+
 let intolerances = [];
 intoleranceCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
