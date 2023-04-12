@@ -196,7 +196,7 @@ button.addEventListener('click', function () {
   document.getElementById('ingredient4-amount').textContent = "";
   document.getElementById('ingredient5-amount').textContent = "";
   document.getElementById('ingredient6-amount').textContent = "";
-  recipeTile.classList.add('is-6');
+  recipeTile.classList.add('is-8');
   cocktailTile.style.display = '';
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(response => response.json())
