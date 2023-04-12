@@ -137,3 +137,16 @@
     max-width: 200px;
     margin: 10px;
   }
+
+  .inline {
+    display: inline-flex;
+  }
+
+  .inline p {
+    margin-right: 10px;
+  }
+
+  #suggested-cocktail {
+    display: flex;
+    flex-direction: column;
+  }
