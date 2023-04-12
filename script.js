@@ -53,7 +53,11 @@ inputField.addEventListener('keydown', async function(event) {
       deleteButton.classList.add('delete-button');
       deleteButton.addEventListener('click', function() {
         newListItem.remove();
+        const index = selectedItems.indexOf(newIngredient);
+        if (index !== -1) {
+          selectedItems.splice(index, 1);}
       });
+    
       newListItem.appendChild(deleteButton);
       ingredientList.appendChild(newListItem);
       inputField.value = '';
@@ -61,6 +65,7 @@ inputField.addEventListener('keydown', async function(event) {
     }
   }
 });
+
 
 // Add click event listeners to checkboxes for filtering recipes
 const filterCheckboxes = document.querySelectorAll('input[type="checkbox"]');
