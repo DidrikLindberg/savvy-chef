@@ -262,12 +262,9 @@ getRecipesButton.addEventListener('click', async function() {
   }
 });
 
+//filters code
 
 const intoleranceCheckboxes = document.querySelectorAll('#intolerance-dropdown input[type="checkbox"]');
-
-
-
-
 
 let intolerances = [];
 intoleranceCheckboxes.forEach(checkbox => {
