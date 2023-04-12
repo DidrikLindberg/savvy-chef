@@ -56,7 +56,7 @@
     box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
   }
   
-  .dropdown-menu a {
+  .dropdown-menu label {
     display: block;
     padding: .25rem;
     text-decoration: none;
@@ -64,7 +64,7 @@
     font-size: smaller;
   }
   
-  .dropdown-menu a:hover {
+  .dropdown-menu label:hover {
     background-color: #eee;
   }
   
