@@ -8,13 +8,26 @@
 }
 
 
-#get-recipes {
+#get-buttons {
+  display: inline-flex;
     position: relative;
     align-self: center;
-    margin-bottom: 20px;
     width: 100%;
+    justify-content: center;
+}
+
+#get-recipes {
+
+    margin-bottom: 20px;
+    width: 70%;
     height: 40px;
     font-size: larger;
+}
+
+#get-cocktails {
+  margin-bottom: 20px;
+  margin-left: 5px;
+  height: 40px;
 }
 
 .dropdown {
