@@ -126,7 +126,7 @@ getRecipesButton.addEventListener('click', async function() {
   resultsContainer.style.display = "";
   var selectedIngredients = selectedItems.join();
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
-  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey + "&query=-foodista.com";
+  var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=5&addRecipeInformation=true&information?includeNutrition=true&apiKey=" + spoonacularApiKey;
 
   try {
     var response = await fetch(apiURLspoonacular);
@@ -135,47 +135,65 @@ getRecipesButton.addEventListener('click', async function() {
     console.log(response);
 
     // Clear any previous recipe results
-    // moved resultsContainer to global variable
-    // var resultsContainer = document.getElementById('suggested-recipes');
     resultsContainer.innerHTML = '';
 
     recipes.results.forEach(function(recipe) {
-      // Create a new element for the recipe
-      var recipeElement = document.createElement('div');
-      recipeElement.classList.add('recipe');
+      // Skip recipes from foodista.com
+      if (recipe.sourceUrl.includes('foodista.com')) {
+        return;
+      }
 
-      // Add the recipe image to the element
-      var recipeImage = document.createElement('img');
-      recipeImage.src = recipe.image;
-      recipeImage.alt = recipe.title;
-      recipeImage.classList.add('recipe-image');
-      recipeElement.appendChild(recipeImage);
+// Create a new element for the recipe
+var recipeElement = document.createElement('div');
+recipeElement.classList.add('recipe');
 
-      // Add the recipe title to the element
-      var recipeTitle = document.createElement('h3');
-      recipeTitle.textContent = recipe.title;
-      recipeTitle.classList.add('recipe-title');
-      recipeElement.appendChild(recipeTitle);
+// Create a container for the recipe image and title
+var recipeImgTitleContainer = document.createElement('div');
+recipeImgTitleContainer.classList.add('recipe-img-title-container');
 
-// Add the recipe URL to the element
-var recipeURL = document.createElement('a');
-recipeURL.textContent = 'View Recipe';
-recipeURL.href = recipe.sourceUrl;
-recipeURL.classList.add('recipe-url');
-recipeURL.target = '_blank'; // open link in a new tab
-recipeElement.appendChild(recipeURL);
+// Add the recipe title to the element as a clickable link
+var recipeTitle = document.createElement('a');
+recipeTitle.textContent = recipe.title;
+recipeTitle.href = recipe.sourceUrl;
+recipeTitle.classList.add('recipe-title');
+recipeTitle.style.fontWeight = 'bold';
+recipeTitle.style.fontSize = '1.2rem';
+recipeTitle.target = '_blank'; // open link in a new tab
+recipeImgTitleContainer.appendChild(recipeTitle);
 
-// Add the recipe
+// Add the recipe image to the element
+var recipeImage = document.createElement('img');
+recipeImage.src = recipe.image;
+recipeImage.alt = recipe.title;
+recipeImage.classList.add('recipe-image');
+recipeImgTitleContainer.appendChild(recipeImage);
 
+// Add the recipe img and title container to the recipe element
+recipeElement.appendChild(recipeImgTitleContainer);
 
-      // Add the recipe element to the results container
-      resultsContainer.appendChild(recipeElement);
+// Create a container for the recipe information
+var recipeInfoContainer = document.createElement('div');
+recipeInfoContainer.classList.add('recipe-info-container');
+
+// Add the recipe summary to the information element
+if (recipe.summary) {
+  var recipeSummary = document.createElement('p');
+  recipeSummary.classList.add('recipe-summary');
+  recipeSummary.textContent = recipe.summary.replace(/<[^>]*>?/gm, '');
+  recipeInfoContainer.appendChild(recipeSummary);
+}
+
+// Add the recipe information to the recipe element
+recipeElement.appendChild(recipeInfoContainer);
+
+// Add the recipe element to the results container
+resultsContainer.appendChild(recipeElement);
     });
   } catch (error) {
     console.error(error);
   }
 });
-
+    
 
 var cocktailTile = document.getElementById('suggested-cocktail');
 var button = document.querySelector('#get-cocktails');
