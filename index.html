@@ -47,7 +47,9 @@
           </div>
         </div>
         <div class="tile is-parent is-3">
-          <div class="tile is-child box">
+
+          <div class="tile is-child box filters">
+
             <p class="title">Filters</p>
             <div id="menu">
               <div class="dropdown">
@@ -103,7 +105,9 @@
                   </a>
                 </div>
               </div>
+
               <div class="dropdown" id="intolerance-dropdown">
+
                 <button class="dropdown-toggle">Intolerances</button>
                 <div class="dropdown-menu">
                   <a href="#">
@@ -374,7 +378,7 @@
                   </a>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -385,15 +389,17 @@
             <p class="title">Suggested recipes</p>
             <p>Put your content here.</p>
           </div>
-          <div class="tile is-child box is-6" id="suggested-cocktail">
+
+          <div class="tile is-child box is-4" id="suggested-cocktail">
             <p class="title">Suggested cocktail</p>
             <p>Name: <span id="cocktail-name"></span></p>
-            <p id="ingredient1-amount"><span id="ingredient1"></span></p>
-            <p id="ingredient2-amount"><span id="ingredient2"></span></p>
-            <p id="ingredient3-amount"><span id="ingredient3"></span></p>
-            <p id="ingredient4-amount"><span id="ingredient4"></span></p>
-            <p id="ingredient5-amount"><span id="ingredient5"></span></p>
-            <p id="ingredient6-amount"><span id="ingredient6"></span></p>
+            <div class="inline"><p id="ingredient1-amount"></p><p id="ingredient1"></p></div>
+            <div class="inline"><p id="ingredient2-amount"></p><p id="ingredient2"></p></div>
+            <div class="inline"><p id="ingredient3-amount"></p><p id="ingredient3"></p></div>
+            <div class="inline"><p id="ingredient4-amount"></p><p id="ingredient4"></p></div>
+            <div class="inline"><p id="ingredient5-amount"></p><p id="ingredient5"></p></div>
+            <div class="inline"><p id="ingredient6-amount"></p><p id="ingredient6"></p></div>
+
             <p id="cocktail-instructions"></p>
             <img id="cocktail-image">
           </div>

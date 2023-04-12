@@ -7,8 +7,11 @@
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
+
 var selectedItems = []; // Array to store selected ingredients
 var currentSuggestions = []; // Array to store the current suggestions
+var resultsContainer = document.getElementById('suggested-recipes');
+
 
 // Function to remove duplicate suggestions
 function removeDuplicateSuggestions(suggestions) {
@@ -20,6 +23,7 @@ function removeDuplicateSuggestions(suggestions) {
     return !isDuplicate;
   });
 }
+
 
 // Function to check if an ingredient is already in the list
 function isIngredientInList(ingredient, list) {
@@ -67,9 +71,11 @@ inputField.addEventListener('keydown', async function(event) {
       ingredientList.appendChild(newListItem);
       inputField.value = '';
       selectedItems.push(newIngredient);
+
     }
   }
 });
+
 
 
 // Add click event listeners to checkboxes for filtering recipes
@@ -80,6 +86,7 @@ filterCheckboxes.forEach(checkbox => {
     const filterItem = document.createElement('li');
     filterItem.textContent = filterText;
     const selectedFiltersList = document.getElementById('selected-filters-list');
+
     if (event.target.checked) {
       if (!selectedFiltersList.querySelector(`li[data-filter="${filterText}"]`)) {
         filterItem.setAttribute('data-filter', filterText);
@@ -94,12 +101,14 @@ filterCheckboxes.forEach(checkbox => {
   });
 });
 
+
 // Function to check if an ingredient is valid (exists in the current suggestions)
 function isIngredientValid(ingredient) {
   return currentSuggestions.includes(ingredient.toLowerCase());
 }
 
 // Function to fetch food item suggestions from Spoonacular API
+
 
 const searchedIngredients = {};
 async function searchFoodItemSuggestions(foodInput) {
@@ -151,9 +160,6 @@ searchInput.addEventListener('input', async (event) => {
             selectedItem.classList.add('selected-item');
             selectedItem.textContent = suggestion.name;
 
-           
-
-            // Add the delete button to the selected item
             var deleteButton = document.createElement('button');
             deleteButton.textContent = 'x';
             deleteButton.classList.add('delete-button');
@@ -164,6 +170,7 @@ searchInput.addEventListener('input', async (event) => {
               }
               selectedItem.remove();
             });
+
 
             selectedItem.appendChild(deleteButton);
             selectedItemsList.appendChild(selectedItem);
@@ -178,6 +185,7 @@ searchInput.addEventListener('input', async (event) => {
   }
   handleIngredientInputChange(event);
 });
+
 
 // Function to handle changes in the ingredient input field
 function handleIngredientInputChange(event) {
@@ -206,15 +214,18 @@ getRecipesButton.addEventListener('click', async function() {
   var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&apiKey=" + spoonacularApiKey;
 
 
+
   try {
     var response = await fetch(apiURLspoonacular);
     var recipes = await response.json();
+
 
     // Clear any previous recipe results
     var resultsContainer = document.getElementById('suggested-recipes');
     resultsContainer.innerHTML = '';
 
     // Create and display recipe elements for each fetched recipe
+
     recipes.results.forEach(function(recipe) {
       // Create a new element for the recipe
       var recipeElement = document.createElement('div');
@@ -233,6 +244,7 @@ getRecipesButton.addEventListener('click', async function() {
       recipeTitle.classList.add('recipe-title');
       recipeElement.appendChild(recipeTitle);
 
+
       // Add the recipe URL to the element
       var recipeURL = document.createElement('a');
       recipeURL.textContent = 'View Recipe';
@@ -241,6 +253,7 @@ getRecipesButton.addEventListener('click', async function() {
       recipeURL.target = '_blank'; // open link in a new tab
       recipeElement.appendChild(recipeURL);
 
+
       // Add the recipe element to the results container
       resultsContainer.appendChild(recipeElement);
     });
@@ -248,6 +261,7 @@ getRecipesButton.addEventListener('click', async function() {
     console.error(error);
   }
 });
+
 
 const intoleranceCheckboxes = document.querySelectorAll('#intolerance-dropdown input[type="checkbox"]');
 
@@ -274,13 +288,15 @@ intoleranceCheckboxes.forEach(checkbox => {
 // Initialize the cocktail tile and button
 var cocktailTile = document.getElementById('suggested-cocktail');
 const button = document.querySelector('#get-cocktails');
+
 var recipeTile = document.querySelector('#suggested-recipes');
 
 cocktailTile.style.display = 'none';
 
-// Attach a click event listener to the button
-button.addEventListener('click', () => {
-  // Clear previous cocktail ingredients
+ 
+
+button.addEventListener('click', function () {
+
   document.getElementById('ingredient1').textContent = "";
   document.getElementById('ingredient2').textContent = "";
   document.getElementById('ingredient3').textContent = "";
@@ -288,55 +304,58 @@ button.addEventListener('click', () => {
   document.getElementById('ingredient5').textContent = "";
   document.getElementById('ingredient6').textContent = "";
 
-  // Update the display of the cocktail tile
-  recipeTile.classList.add('is-6');
+  document.getElementById('ingredient1-amount').textContent = "";
+  document.getElementById('ingredient2-amount').textContent = "";
+  document.getElementById('ingredient3-amount').textContent = "";
+  document.getElementById('ingredient4-amount').textContent = "";
+  document.getElementById('ingredient5-amount').textContent = "";
+  document.getElementById('ingredient6-amount').textContent = "";
+  recipeTile.classList.add('is-8');
   cocktailTile.style.display = '';
-
-  // Fetch a random cocktail recipe
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(response => response.json())
     .then(data => {
-      // Extract cocktail data
-      const cocktailName = data.drinks[0].strDrink;
-      const ingredients = [
-        data.drinks[0].strIngredient1,
-        data.drinks[0].strIngredient2,
-        data.drinks[0].strIngredient3,
-        data.drinks[0].strIngredient4,
-        data.drinks[0].strIngredient5,
-        data.drinks[0].strIngredient6
-      ];
-      const measures = [
-        data.drinks[0].strMeasure1,
-        data.drinks[0].strMeasure2,
-        data.drinks[0].strMeasure3,
-        data.drinks[0].strMeasure4,
+      console.log(data);
+      var cocktailName = data.drinks[0].strDrink;
+      var ingredient1 = data.drinks[0].strIngredient1;
+      var ingredient2 = data.drinks[0].strIngredient2;
+      var ingredient3 = data.drinks[0].strIngredient3;
+      var ingredient4 = data.drinks[0].strIngredient4;
+      var ingredient5 = data.drinks[0].strIngredient5;
+      var ingredient6 = data.drinks[0].strIngredient6;
+      var instructions = data.drinks[0].strInstructions;
+      var image = data.drinks[0].strDrinkThumb;
 
-        data.drinks[0].strMeasure5,
-        data.drinks[0].strMeasure6
-      ];
-      const instructions = data.drinks[0].strInstructions;
-      const image = data.drinks[0].strDrinkThumb;
-
-      // Update the cocktail tile with the fetched data
       document.getElementById('cocktail-name').textContent = cocktailName;
-      
-      // Display the ingredients and their measures
-      ingredients.forEach((ingredient, index) => {
-        if (ingredient) {
-          document.getElementById(`ingredient${index + 1}`).textContent = measures[index] + " " + ingredient;
-        }
-      });
+      if (data.drinks[0].strIngredient1) {
+        document.getElementById('ingredient1').textContent = ingredient1;}
+      if (data.drinks[0].strMeasure1) {
+        document.getElementById('ingredient1-amount').textContent = data.drinks[0].strMeasure1;}
+      if (data.drinks[0].strIngredient2) {
+        document.getElementById('ingredient2').textContent = ingredient2;}
+      if (data.drinks[0].strMeasure2) {
+        document.getElementById('ingredient2-amount').textContent = data.drinks[0].strMeasure2;}
+      if (data.drinks[0].strIngredient3) {
+        document.getElementById('ingredient3').textContent = ingredient3;}
+      if (data.drinks[0].strMeasure3) {
+        document.getElementById('ingredient3-amount').textContent = data.drinks[0].strMeasure3;}
+      if (data.drinks[0].strIngredient4) {
+        document.getElementById('ingredient4').textContent = ingredient4;}
+      if (data.drinks[0].strMeasure4) {
+        document.getElementById('ingredient4-amount').textContent = data.drinks[0].strMeasure4;}
+      if (data.drinks[0].strIngredient5) {
+        document.getElementById('ingredient5').textContent = ingredient5;}
+      if (data.drinks[0].strMeasure5) {
+        document.getElementById('ingredient5-amount').textContent = data.drinks[0].strMeasure5;}
+      if (data.drinks[0].strIngredient6) {
+        document.getElementById('ingredient6').textContent = ingredient6;}
+      if (data.drinks[0].strMeasure6) {
+        document.getElementById('ingredient6-amount').textContent = data.drinks[0].strMeasure6;}
 
-      // Update the instructions and image
+
       document.getElementById('cocktail-instructions').textContent = instructions;
       document.getElementById('cocktail-image').src = image;
     })
     .catch(error => console.error(error));
 });
 
-
-
-
-    
-  

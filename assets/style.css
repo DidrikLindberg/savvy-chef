@@ -1,139 +1,156 @@
 .hero-body {
-  background-color: rgba(70, 62, 227, 0.658);
+
+    background-color: rgba(70, 62, 227, 0.658);
+
 }
 
 
 .tile.is-child.box {
-  min-height: 500px;
+
+    min-height: 24rem;
+
 }
 
-
 #get-buttons {
-display: inline-flex;
-  position: relative;
-  align-self: center;
-  width: 100%;
-  justify-content: center;
+
+  display: inline-flex;
+    position: relative;
+    align-self: center;
+    width: 100%;
+    justify-content: center;
+
 }
 
 #get-recipes {
 
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: larger;
+
+    margin-bottom: 1rem;
+    width: 70%;
+    height: 2.5rem;
+    font-size: larger;
 }
 
 #get-cocktails {
-margin-bottom: 20px;
-margin-left: 5px;
-height: 40px;
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+  height: 2.5rem;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
-}
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    padding: .5rem;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: .5rem;
+  }
 
-.dropdown-toggle {
-  padding: 10px;
-  background-color: #ffffff;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
+  .dropdown-toggle:hover {
+    background-color: #ebebeb;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 5.5rem;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: .25rem;
+    text-decoration: none;
+    color: #333;
+    font-size: smaller;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #eee;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
 
-.dropdown-toggle:hover {
-  background-color: #ebebeb;
-}
+  #menu {
+    display: flex;
+    flex-direction: column;
+  }
 
-.dropdown-menu {
-  position: absolute;
-  top: 0;
-  left: 85px;
-  display: none;
-  background-color: #fff;
-  box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
-}
+  .dropdown-menu {
+    max-height: 20rem;
+    overflow-y: auto; 
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+  }
+  
+  .dropdown-item input[type="checkbox"] {
+    margin-right: .5rem;
+  }
 
-.dropdown-menu a {
-  display: block;
-  padding: 5px;
-  text-decoration: none;
-  color: #333;
-  font-size: smaller;
-}
+  .current-flex {
+    display: flex;
+  }
 
-.dropdown-menu a:hover {
-  background-color: #eee;
-}
+  .current-filters {
+    margin: auto;
+    text-align: center;
+    height: 100%;
+  }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
+  .current-ingredients {
+    margin: auto;
+    text-align: center;
+    height: 100%;
+  }
 
-#menu {
-  display: flex;
-  flex-direction: column;
-}
+  .selected-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.dropdown-menu {
-  max-height: 350px;
-  overflow-y: auto; 
-}
+  .current-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
 
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-}
+  .delete-button {
+    margin-left: .5rem;
+  }
 
-.dropdown-item input[type="checkbox"] {
-  margin-right: 10px;
-}
+  #cocktail-image {
+    max-width: 15rem;
+    margin: .5rem;
+  }
 
-.current-flex {
-  display: flex;
-}
+  .inline {
+    display: inline-flex;
+  }
 
-.current-filters {
-  margin: auto;
-  text-align: center;
-  height: 100%;
-}
+  .inline p {
+    margin-right: 10px;
+  }
 
-.current-ingredients {
-  margin: auto;
-  text-align: center;
-  height: 100%;
-}
+  #suggested-cocktail {
+    display: flex;
+    flex-direction: column;
+  }
 
-.selected-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  
 
-.current-flex {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.suggestion-item:hover {
-  background-color: #eee;
-  cursor: pointer;
-}
-
-.delete-button {
-  margin-left: 5px;
-}
-
-#suggested-recipes {
-  margin-right: 10px;
-}
-
-#cocktail-image {
-  max-width: 200px;
-  margin: 10px;
-}
