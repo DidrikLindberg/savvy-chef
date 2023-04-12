@@ -2,6 +2,7 @@ var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
 var selectedItems = [];
+var resultsContainer = document.getElementById('suggested-recipes');
 
 function removeDuplicateSuggestions(suggestions) {
   var seen = new Set();
@@ -118,8 +119,11 @@ searchInput.addEventListener('input', async () => {
   }
 });
 
+resultsContainer.style.display = 'none';
+
 var getRecipesButton = document.getElementById('get-recipes');
 getRecipesButton.addEventListener('click', async function() {
+  resultsContainer.style.display = "";
   var selectedIngredients = selectedItems.join();
   var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
   var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true&apiKey=" + spoonacularApiKey + "&query=-foodista.com";
@@ -131,7 +135,8 @@ getRecipesButton.addEventListener('click', async function() {
     console.log(response);
 
     // Clear any previous recipe results
-    var resultsContainer = document.getElementById('suggested-recipes');
+    // moved resultsContainer to global variable
+    // var resultsContainer = document.getElementById('suggested-recipes');
     resultsContainer.innerHTML = '';
 
     recipes.results.forEach(function(recipe) {
@@ -169,4 +174,72 @@ recipeElement.appendChild(recipeURL);
   } catch (error) {
     console.error(error);
   }
+});
+
+
+var cocktailTile = document.getElementById('suggested-cocktail');
+var button = document.querySelector('#get-cocktails');
+var recipeTile = document.querySelector('#suggested-recipes');
+
+cocktailTile.style.display = 'none';
+
+button.addEventListener('click', function () {
+  document.getElementById('ingredient1').textContent = "";
+  document.getElementById('ingredient2').textContent = "";
+  document.getElementById('ingredient3').textContent = "";
+  document.getElementById('ingredient4').textContent = "";
+  document.getElementById('ingredient5').textContent = "";
+  document.getElementById('ingredient6').textContent = "";
+  document.getElementById('ingredient1-amount').textContent = "";
+  document.getElementById('ingredient2-amount').textContent = "";
+  document.getElementById('ingredient3-amount').textContent = "";
+  document.getElementById('ingredient4-amount').textContent = "";
+  document.getElementById('ingredient5-amount').textContent = "";
+  document.getElementById('ingredient6-amount').textContent = "";
+  recipeTile.classList.add('is-8');
+  cocktailTile.style.display = '';
+  fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      var cocktailName = data.drinks[0].strDrink;
+      var ingredient1 = data.drinks[0].strIngredient1;
+      var ingredient2 = data.drinks[0].strIngredient2;
+      var ingredient3 = data.drinks[0].strIngredient3;
+      var ingredient4 = data.drinks[0].strIngredient4;
+      var ingredient5 = data.drinks[0].strIngredient5;
+      var ingredient6 = data.drinks[0].strIngredient6;
+      var instructions = data.drinks[0].strInstructions;
+      var image = data.drinks[0].strDrinkThumb;
+
+      document.getElementById('cocktail-name').textContent = cocktailName;
+      if (data.drinks[0].strIngredient1) {
+        document.getElementById('ingredient1').textContent = ingredient1;}
+      if (data.drinks[0].strMeasure1) {
+        document.getElementById('ingredient1-amount').textContent = data.drinks[0].strMeasure1;}
+      if (data.drinks[0].strIngredient2) {
+        document.getElementById('ingredient2').textContent = ingredient2;}
+      if (data.drinks[0].strMeasure2) {
+        document.getElementById('ingredient2-amount').textContent = data.drinks[0].strMeasure2;}
+      if (data.drinks[0].strIngredient3) {
+        document.getElementById('ingredient3').textContent = ingredient3;}
+      if (data.drinks[0].strMeasure3) {
+        document.getElementById('ingredient3-amount').textContent = data.drinks[0].strMeasure3;}
+      if (data.drinks[0].strIngredient4) {
+        document.getElementById('ingredient4').textContent = ingredient4;}
+      if (data.drinks[0].strMeasure4) {
+        document.getElementById('ingredient4-amount').textContent = data.drinks[0].strMeasure4;}
+      if (data.drinks[0].strIngredient5) {
+        document.getElementById('ingredient5').textContent = ingredient5;}
+      if (data.drinks[0].strMeasure5) {
+        document.getElementById('ingredient5-amount').textContent = data.drinks[0].strMeasure5;}
+      if (data.drinks[0].strIngredient6) {
+        document.getElementById('ingredient6').textContent = ingredient6;}
+      if (data.drinks[0].strMeasure6) {
+        document.getElementById('ingredient6-amount').textContent = data.drinks[0].strMeasure6;}
+
+      document.getElementById('cocktail-instructions').textContent = instructions;
+      document.getElementById('cocktail-image').src = image;
+    })
+    .catch(error => console.error(error));
 });
