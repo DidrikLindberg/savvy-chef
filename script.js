@@ -3,7 +3,6 @@
 
 
 
-
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
@@ -15,6 +14,9 @@ var resultsContainer = document.getElementById('suggested-recipes');
 
 // Function to remove duplicate suggestions
 function removeDuplicateSuggestions(suggestions) {
+  if (!Array.isArray(suggestions)) {
+    return suggestions;
+  }
   var seen = new Set();
   return suggestions.filter(function(suggestion) {
     var lowerCaseName = suggestion.name.toLowerCase();
@@ -139,7 +141,7 @@ searchInput.addEventListener('input', async (event) => {
     var suggestions = await searchFoodItemSuggestions(searchTerm);
     var uniqueSuggestions = removeDuplicateSuggestions(suggestions);
     currentSuggestions = uniqueSuggestions.map(suggestion => suggestion.name.toLowerCase());
-
+  
     // Update the suggestion box based on the fetched suggestions
     suggestionBox.style.display = 'none';
     suggestionBox.innerHTML = '';
@@ -211,6 +213,12 @@ window.onload = function() {
   resultsContainer.style.display = 'none';
 
 
+const sortBySelect = document.getElementById('sort-by');
+let sortOrder = sortBySelect.value;
+sortBySelect.addEventListener('change', event => {
+  sortOrder = event.target.value;
+});
+
   // Add click event listener to the 'Get Recipes' button
   var getRecipesButton = document.getElementById('get-recipes');
   getRecipesButton.addEventListener('click', async function() {
@@ -219,7 +227,23 @@ window.onload = function() {
     var selectedIngredients = selectedItems.join();
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
-    var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&apiKey=" + spoonacularApiKey;
+
+
+   var dietsParam  = selectedDiet ? '&diet=' + selectedDiet : '';
+
+
+
+    var maxReadyTimeParam = selectedMaxReadyTimes.length > 0 ? '&maxReadyTime=' + Math.min(...selectedMaxReadyTimes) : '';
+
+    
+    var cuisineParam = selectedCuisine ? '&cuisine=' + selectedCuisine : '';
+
+
+    
+
+    var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
+
+
 
     try {
       var response = await fetch(apiURLspoonacular);
@@ -229,13 +253,19 @@ window.onload = function() {
 
       // Clear any previous recipe results
       resultsContainer.innerHTML = '';
-
+if (sortOrder === "price") {
+    recipes.results.sort((a, b) => a.pricePerServing - b.pricePerServing);
+  } else if (sortOrder === "-price") {
+    recipes.results.sort((a, b) => b.pricePerServing - a.pricePerServing);
+  }
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
-        if (recipe.sourceUrl.includes('foodista.com')) {
-          return;
-        }
+
+        // if (recipe.sourceUrl.includes('foodista.com')) {
+        //   return;
+        // }
+
 
         // Create a new element for the recipe
         var recipeElement = document.createElement('div');
@@ -318,11 +348,43 @@ window.onload = function() {
         // Add the recipe element to the results container
         resultsContainer.appendChild(recipeElement);
       });
+
+      // Scroll to the bottom of the results container to show the new recipes
+resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+
     } catch (error) {
       console.error(error);
     }
   });
 };
+
+const dietsCheckboxes = document.querySelectorAll('#diets-dropdown input[type="checkbox"]');
+let diets = [];
+dietsCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+
+
+const dietsRadioButtons = document.querySelectorAll('.diets-radio');
+
+let selectedDiet = '';
+dietsRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', event => {
+    const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+     // If the clicked radio button is already selected, deselect it
+     if (selectedDiet === dietsText) {
+      event.target.checked = false;
+      selectedDiet = '';
+    } else {
+      // Otherwise, set the selected diet to the clicked radio button's value
+      selectedDiet = dietsText;
+    }
+
+
+  });
+});
+
 
 
 
@@ -342,6 +404,65 @@ intoleranceCheckboxes.forEach(checkbox => {
     }
   });
 });
+
+const maxReadyTimeCheckboxes = document.querySelectorAll('#max-ready-time-dropdown');
+
+
+
+let selectedMaxReadyTimes = [];
+
+
+
+maxReadyTimeCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const maxReadyTimeText = event.target.parentNode.querySelector('span').textContent;
+    const maxReadyTimeValue = parseInt(maxReadyTimeText.match(/\d+/)[0]);
+
+
+
+    if (event.target.checked) {
+      // Add the maxReadyTimeValue to the selectedMaxReadyTimes array if it's not already there
+      if (!selectedMaxReadyTimes.includes(maxReadyTimeValue)) {
+        selectedMaxReadyTimes.push(maxReadyTimeValue);
+      }
+    } else {
+      // Remove the maxReadyTimeValue from the selectedMaxReadyTimes array
+      selectedMaxReadyTimes = selectedMaxReadyTimes.filter(value => value !== maxReadyTimeValue);
+    }
+
+  });
+});
+
+
+
+
+const cuisinesRadioButtons = document.querySelectorAll('.cuisines-radio');
+let selectedCuisine = '';
+cuisinesRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', event => {
+    const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+  // If the clicked radio button is already selected, deselect it
+  if (selectedCuisine  === cuisineText) {
+    event.target.checked = false;
+    selectedCuisine  = '';
+  } else {
+    // Otherwise, set the selected diet to the clicked radio button's value
+    selectedCuisine = cuisineText;
+  }
+
+
+
+   
+
+
+  });
+});
+
+
+
+
+
+
 
 
 // declaring variables for cocktail function
@@ -418,9 +539,12 @@ cocktailButton.addEventListener('click', function () {
 
       document.getElementById('cocktail-instructions').textContent = instructions;
       document.getElementById('cocktail-image').src = image;
+      cocktailTile.scrollIntoView({ behavior: 'smooth', block: 'start' });
     })
+    
     .catch(error => console.error(error));
-});
+
+  });
 
 var savedRecipes = document.querySelector(".saved-recipes");
 // saved recipes button changes page to recipes.html

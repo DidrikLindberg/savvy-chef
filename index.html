@@ -32,38 +32,38 @@
               <div class="dropdown">
                 <button class="dropdown-toggle">Diets</button>
                 <div class="dropdown-menu">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Gluten free</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Ketogenic</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Ketogenic</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Vegetarian</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Vegan</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Pescatarian</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Paleo</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Primal</span>
-                    </label>
+
+
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Gluten Free</span>
+                  </label>
+
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Ketogenic</span>
+                  </label>
+
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Vegetarian</span>
+                  </label>
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Vegan</span>
+                  </label>
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Pescatarian</span>
+                  </label>
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Paleo</span>
+                  </label>
+                  <label class="dropdown-item">
+                    <input type="radio" name="diets" class="diets-radio">
+                    <span>Primal</span>
+                  </label>
                 </div>
               </div>
 
@@ -101,36 +101,23 @@
                     </label>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Cost</button>
-                <div class="dropdown-menu">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $5 per serving</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $10 per serving</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $15 per serving</span>
-                    </label>
-                </div>
-              </div>
+              <select id="sort-by">
+                <option value="price">Price: low to high</option>
+                <option value="-price">Price: high to low</option>
+              </select>
               <div class="dropdown">
                 <button class="dropdown-toggle">Prep Time</button>
                 <div class="dropdown-menu">
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "max-ready-time-dropdown">
                       <span>Less than 20 minutes</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "max-ready-time-dropdown">
                       <span>Less than 40 minutes</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "max-ready-time-dropdown">
                       <span>Less than 60 minutes</span>
                     </label>
                 </div>
@@ -139,124 +126,113 @@
                 <button class="dropdown-toggle">Cuisine</button>
                 <div class="dropdown-menu">
                     <label class="dropdown-item">
-                      <input type="checkbox">
+
+
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>African</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>American</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>British</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Chinese</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Caribbean</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Eastern European</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>European</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>French</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>German</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Greek</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Indian</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Irish</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Italian</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Japanese</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Jewish</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Korean</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Latin American</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Mediterranean</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Mexican</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Middle Eastern</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Nordic</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Southern</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Spanish</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
                       <span>Thai</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="radio" name="cuisines" class="cuisines-radio">
+
+
                       <span>Vietnamese</span>
                     </label>
+
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Difficulty</button>
-                <div class="dropdown-menu">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Easy</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Medium</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Hard</span>
-                    </label>
-                </div>
-              </div>
+              
 
             </div>
           </div>
