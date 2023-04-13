@@ -364,7 +364,8 @@ let diets = [];
 dietsCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
     const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
-
+  });
+});
 
 const dietsRadioButtons = document.querySelectorAll('.diets-radio');
 
@@ -380,8 +381,6 @@ dietsRadioButtons.forEach(radioButton => {
       // Otherwise, set the selected diet to the clicked radio button's value
       selectedDiet = dietsText;
     }
-
-
   });
 });
 
