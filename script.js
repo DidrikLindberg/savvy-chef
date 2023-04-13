@@ -289,6 +289,9 @@ window.onload = function() {
         // Add the recipe element to the results container
         resultsContainer.appendChild(recipeElement);
       });
+      // Scroll to the bottom of the results container to show the new recipes
+resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
     } catch (error) {
       console.error(error);
     }

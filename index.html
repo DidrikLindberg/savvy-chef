@@ -97,23 +97,10 @@
                     </label>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Cost</button>
-                <div class="dropdown-menu">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $5 per serving</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $10 per serving</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $15 per serving</span>
-                    </label>
-                </div>
-              </div>
+              <select id="sort-by">
+                <option value="price">Price: low to high</option>
+                <option value="-price">Price: high to low</option>
+              </select>
               <div class="dropdown">
                 <button class="dropdown-toggle">Prep Time</button>
                 <div class="dropdown-menu">
