@@ -234,9 +234,9 @@ window.onload = function() {
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
-        if (recipe.sourceUrl.includes('foodista.com')) {
-          return;
-        }
+        // if (recipe.sourceUrl.includes('foodista.com')) {
+        //   return;
+        // }
 
         // Create a new element for the recipe
         var recipeElement = document.createElement('div');
