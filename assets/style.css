@@ -230,7 +230,7 @@
     box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
     cursor: pointer;
     border: none;
-    position: relative;
+    position:sticky;
     left: 72%;
     bottom: 20%;
   }
