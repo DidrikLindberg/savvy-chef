@@ -192,6 +192,11 @@
     .my-dropbtn {
       position: relative;
     }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap
+    }
   }
 
   .dropdown2 {
@@ -223,9 +228,11 @@
     box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
     cursor: pointer;
     border: none;
-    position:sticky;
-    left: 72%;
-    bottom: 20%;
+    position: absolute;
+    bottom: 15px;
+    left: 65%;
+    width: 200px;
+    font-size: larger;
   }
 
   .saved-recipes:hover {

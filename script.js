@@ -273,6 +273,7 @@ window.onload = function() {
           // Get the recipe name, image, and summary
           var recipeName = recipe.title;
           var recipeImage = recipe.image;
+          // replaces any html tags with an empty string
           var recipeSummary = recipe.summary.replace(/<[^>]*>?/gm, '');
         
           // Create an object to represent the saved recipe
@@ -305,6 +306,7 @@ window.onload = function() {
         if (recipe.summary) {
           var recipeSummary = document.createElement('p');
           recipeSummary.classList.add('recipe-summary');
+          // replaces any html tags with an empty string
           recipeSummary.textContent = recipe.summary.replace(/<[^>]*>?/gm, '');
           recipeInfoContainer.appendChild(recipeSummary);
         }
@@ -341,18 +343,18 @@ intoleranceCheckboxes.forEach(checkbox => {
 });
 
 
-
+// declaring variables for cocktail function
 var cocktailTile = document.getElementById('suggested-cocktail');
 var button = document.querySelector('#get-cocktails');
-
 var recipeTile = document.querySelector('#suggested-recipes');
 
+// defaults to hiding the cocktail tile
 cocktailTile.style.display = 'none';
 
  
 
 button.addEventListener('click', function () {
-
+// once the button is clicked, all content is emptied to be repopulated
   document.getElementById('ingredient1').textContent = "";
   document.getElementById('ingredient2').textContent = "";
   document.getElementById('ingredient3').textContent = "";
@@ -366,12 +368,15 @@ button.addEventListener('click', function () {
   document.getElementById('ingredient4-amount').textContent = "";
   document.getElementById('ingredient5-amount').textContent = "";
   document.getElementById('ingredient6-amount').textContent = "";
+  // resizes the recipes tile to make room for cocktail tile that appears
   recipeTile.classList.add('is-8');
   cocktailTile.style.display = '';
+  // api request for a random cocktail
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      // declaring variables for drink information
       var cocktailName = data.drinks[0].strDrink;
       var ingredient1 = data.drinks[0].strIngredient1;
       var ingredient2 = data.drinks[0].strIngredient2;
@@ -381,7 +386,8 @@ button.addEventListener('click', function () {
       var ingredient6 = data.drinks[0].strIngredient6;
       var instructions = data.drinks[0].strInstructions;
       var image = data.drinks[0].strDrinkThumb;
-
+      
+      // checks if content exists before populating in html
       document.getElementById('cocktail-name').textContent = cocktailName;
       if (data.drinks[0].strIngredient1) {
         document.getElementById('ingredient1').textContent = ingredient1;}
@@ -416,7 +422,7 @@ button.addEventListener('click', function () {
 });
 
 var savedRecipes = document.querySelector(".saved-recipes");
-
+// saved recipes button changes page to recipes.html
 savedRecipes.addEventListener("click", function() {
-  window.location.href = "recipes.html";
+  window.location = "./recipes.html";
 });
