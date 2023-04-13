@@ -15,6 +15,9 @@ var resultsContainer = document.getElementById('suggested-recipes');
 
 // Function to remove duplicate suggestions
 function removeDuplicateSuggestions(suggestions) {
+  if (!Array.isArray(suggestions)) {
+    return suggestions;
+  }
   var seen = new Set();
   return suggestions.filter(function(suggestion) {
     var lowerCaseName = suggestion.name.toLowerCase();
@@ -139,7 +142,7 @@ searchInput.addEventListener('input', async (event) => {
     var suggestions = await searchFoodItemSuggestions(searchTerm);
     var uniqueSuggestions = removeDuplicateSuggestions(suggestions);
     currentSuggestions = uniqueSuggestions.map(suggestion => suggestion.name.toLowerCase());
-
+  
     // Update the suggestion box based on the fetched suggestions
     suggestionBox.style.display = 'none';
     suggestionBox.innerHTML = '';
