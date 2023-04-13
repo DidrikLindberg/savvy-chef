@@ -196,6 +196,9 @@
     #suggested-recipes {
       min-width: 768px;
     }
+    .my-dropbtn {
+      position: relative;
+    }
   }
 
   .dropdown2 {
@@ -220,55 +223,23 @@
     display: block;
   }
   
-  .dropbtn {
+  .saved-recipes {
     background-color: #fff;
     color: #000;
     padding: 10px;
-    border: none;
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
     cursor: pointer;
-  }
-
-  .my-dropdown {
+    border: none;
     position: relative;
-    left: 30%;
-    top: 40px;
+    left: 72%;
+    bottom: 20%;
   }
-  
-  .my-dropdown-content {
-    display: none;
+
+  .saved-recipes:hover {
+    background-color: #eee;
+  }
+
+  .save-button {
+    margin: 1rem;
     position: absolute;
-    z-index: 1;
-    color: black;
-    background-color: #fff;
-    width: fit-content;
-    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
-  }
-  
-  .my-dropdown-content a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #000;
-    font-size: smaller;
-  }
-  
-  .my-dropdown:hover .my-dropdown-content {
-    display: block;
-  }
-  
-  .my-dropbtn {
-    background-color: #fff;
-    color: #000;
-    padding: 10px;
-    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
-    cursor: pointer;
-    border: none;
-  }
-
-  .my-dropdown-content a:hover {
-    background-color: #eee;
-  }
-
-  .my-dropbtn:hover {
-    background-color: #eee;
   }
