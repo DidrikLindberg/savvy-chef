@@ -236,6 +236,7 @@ sortBySelect.addEventListener('change', event => {
     
     var cuisineParam = selectedCuisine ? '&cuisine=' + selectedCuisine : '';
 
+
     
 
     var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
@@ -258,7 +259,6 @@ if (sortOrder === "price") {
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
-
 
         // if (recipe.sourceUrl.includes('foodista.com')) {
         //   return;
@@ -322,6 +322,12 @@ resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 };
 
+const dietsCheckboxes = document.querySelectorAll('#diets-dropdown input[type="checkbox"]');
+let diets = [];
+dietsCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+
 
 const dietsRadioButtons = document.querySelectorAll('.diets-radio');
 
@@ -337,6 +343,7 @@ dietsRadioButtons.forEach(radioButton => {
       // Otherwise, set the selected diet to the clicked radio button's value
       selectedDiet = dietsText;
     }
+
 
   });
 });
@@ -363,13 +370,16 @@ intoleranceCheckboxes.forEach(checkbox => {
 const maxReadyTimeCheckboxes = document.querySelectorAll('#max-ready-time-dropdown');
 
 
+
 let selectedMaxReadyTimes = [];
+
 
 
 maxReadyTimeCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
     const maxReadyTimeText = event.target.parentNode.querySelector('span').textContent;
     const maxReadyTimeValue = parseInt(maxReadyTimeText.match(/\d+/)[0]);
+
 
 
     if (event.target.checked) {
@@ -384,6 +394,7 @@ maxReadyTimeCheckboxes.forEach(checkbox => {
 
   });
 });
+
 
 
 
@@ -404,6 +415,7 @@ cuisinesRadioButtons.forEach(radioButton => {
 
 
    
+
 
   });
 });
@@ -489,4 +501,6 @@ button.addEventListener('click', function () {
     })
     
     .catch(error => console.error(error));
+
   });
+
