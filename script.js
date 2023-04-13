@@ -220,6 +220,7 @@ window.onload = function() {
     var selectedIngredients = selectedItems.join();
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
+
     var dietsParam  = diets.length > 0 ? '&diet=' + diets.join(',') : '';
     var maxReadyTimeParam = maxReadyTime > 0 ? '&maxReadyTime=' + maxReadyTime : '';
     
@@ -227,6 +228,7 @@ window.onload = function() {
     
 
     var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
+
 
 
     try {
@@ -241,7 +243,11 @@ window.onload = function() {
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
-       
+
+        // if (recipe.sourceUrl.includes('foodista.com')) {
+        //   return;
+        // }
+
 
         // Create a new element for the recipe
         var recipeElement = document.createElement('div');
@@ -289,14 +295,17 @@ window.onload = function() {
         // Add the recipe element to the results container
         resultsContainer.appendChild(recipeElement);
       });
+
       // Scroll to the bottom of the results container to show the new recipes
 resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
 
     } catch (error) {
       console.error(error);
     }
   });
 };
+
 const dietsCheckboxes = document.querySelectorAll('#diets-dropdown input[type="checkbox"]');
 let diets = [];
 dietsCheckboxes.forEach(checkbox => {
@@ -313,6 +322,7 @@ dietsCheckboxes.forEach(checkbox => {
     }
   });
 });
+
 
 
 const intoleranceCheckboxes = document.querySelectorAll('#intolerance-dropdown input[type="checkbox"]');

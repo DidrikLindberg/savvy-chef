@@ -5,7 +5,9 @@
 }
 
 .logo {
-width: 15rem;
+
+  width: 15rem;
+
 }
 
 .tile.is-child.box {
@@ -51,6 +53,35 @@ height: 2.5rem;
   cursor: pointer;
   margin-bottom: .5rem;
 }
+  .dropdown-toggle:hover {
+    background-color: #ebebeb;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 5.5rem;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+  }
+  
+  .dropdown-menu label {
+    display: block;
+    padding: .25rem;
+    text-decoration: none;
+    color: #333;
+    font-size: smaller;
+  }
+  
+  .dropdown-menu label:hover {
+    background-color: #eee;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
 
 .dropdown-toggle:hover {
   background-color: #ebebeb;
@@ -91,6 +122,12 @@ height: 2.5rem;
   overflow-y: auto; 
 }
 
+  .suggestion-item:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -116,6 +153,7 @@ height: 2.5rem;
   text-align: center;
   height: 100%;
 }
+
 
 .selected-items {
   display: flex;
@@ -196,3 +234,52 @@ height: 2.5rem;
     min-width: 768px;
   }
 }
+
+  .recipe {
+    display: flex;
+    align-items: flex-start;
+  }
+  .recipe + .recipe {
+    margin-top: 40px;
+  }
+  
+  .recipe-img-title-container {
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .recipe-img-title-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .recipe-info-container {
+    width: 80%;
+    margin-left: 20px;
+  }
+  
+  .recipe-title {
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+  }
+  
+
+  #cocktail-name {
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    #recipes-parent {
+      display: flex;
+      flex-wrap: wrap-reverse;
+    }
+    #suggested-cocktail {
+      height: auto;
+    }
+    #suggested-recipes {
+      min-width: 768px;
+    }
+  }
+
+
