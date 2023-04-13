@@ -447,6 +447,8 @@ button.addEventListener('click', function () {
 
       document.getElementById('cocktail-instructions').textContent = instructions;
       document.getElementById('cocktail-image').src = image;
+      cocktailTile.scrollIntoView({ behavior: 'smooth', block: 'start' });
     })
+    
     .catch(error => console.error(error));
 });
