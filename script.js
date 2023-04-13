@@ -221,9 +221,10 @@ window.onload = function() {
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
     var dietsParam  = diets.length > 0 ? '&diet=' + diets.join(',') : '';
+    var maxReadyTimeParam = maxReadyTime > 0 ? '&maxReadyTime=' + maxReadyTime : '';
     console.log("Diets Param:", dietsParam);
 
-    var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&" + dietsParam + "&apiKey=" + spoonacularApiKey;
+    var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&" + maxReadyTimeParam + "&" + dietsParam + "&apiKey=" + spoonacularApiKey;
 
     try {
       var response = await fetch(apiURLspoonacular);
@@ -322,6 +323,25 @@ intoleranceCheckboxes.forEach(checkbox => {
         intolerances.splice(index, 1);
       }
     }
+  });
+});
+
+const maxReadyTimeCheckboxes = document.querySelectorAll('#max-ready-time-dropdown');
+
+let maxReadyTime = 0;
+maxReadyTimeCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const maxReadyTimeText = event.target.parentNode.querySelector('span').textContent;
+    const maxReadyTimeValue = parseInt(maxReadyTimeText.match(/\d+/)[0]);
+
+    // Uncheck other max ready time checkboxes and update the maxReadyTime variable
+    maxReadyTimeCheckboxes.forEach(otherCheckbox => {
+      if (otherCheckbox !== event.target) {
+        otherCheckbox.checked = false;
+      } else {
+        maxReadyTime = event.target.checked ? maxReadyTimeValue : 0;
+      }
+    });
   });
 });
 
