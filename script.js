@@ -213,6 +213,12 @@ window.onload = function() {
   resultsContainer.style.display = 'none';
 
 
+const sortBySelect = document.getElementById('sort-by');
+let sortOrder = sortBySelect.value;
+sortBySelect.addEventListener('change', event => {
+  sortOrder = event.target.value;
+});
+
   // Add click event listener to the 'Get Recipes' button
   var getRecipesButton = document.getElementById('get-recipes');
   getRecipesButton.addEventListener('click', async function() {
@@ -243,10 +249,16 @@ window.onload = function() {
 
       // Clear any previous recipe results
       resultsContainer.innerHTML = '';
-
+if (sortOrder === "price") {
+    recipes.results.sort((a, b) => a.pricePerServing - b.pricePerServing);
+  } else if (sortOrder === "-price") {
+    recipes.results.sort((a, b) => b.pricePerServing - a.pricePerServing);
+  }
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
+  
+
 
         // if (recipe.sourceUrl.includes('foodista.com')) {
         //   return;
