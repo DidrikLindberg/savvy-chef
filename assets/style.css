@@ -243,3 +243,12 @@
     margin: 1rem;
     position: absolute;
   }
+
+  .saved-recipe-container h2 {
+font-size: larger;
+font-weight: bold;
+  }
+
+  .saved-recipe-container {
+    margin: 2rem;
+  }
