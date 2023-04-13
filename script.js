@@ -215,6 +215,7 @@ window.onload = function() {
   var getRecipesButton = document.getElementById('get-recipes');
   getRecipesButton.addEventListener('click', async function() {
     resultsContainer.style.display = "";
+    cocktailButton.classList.add('is-4');
     var selectedIngredients = selectedItems.join();
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
@@ -345,7 +346,7 @@ intoleranceCheckboxes.forEach(checkbox => {
 
 // declaring variables for cocktail function
 var cocktailTile = document.getElementById('suggested-cocktail');
-var button = document.querySelector('#get-cocktails');
+var cocktailButton = document.querySelector('#get-cocktails');
 var recipeTile = document.querySelector('#suggested-recipes');
 
 // defaults to hiding the cocktail tile
@@ -353,7 +354,7 @@ cocktailTile.style.display = 'none';
 
  
 
-button.addEventListener('click', function () {
+cocktailButton.addEventListener('click', function () {
 // once the button is clicked, all content is emptied to be repopulated
   document.getElementById('ingredient1').textContent = "";
   document.getElementById('ingredient2').textContent = "";
