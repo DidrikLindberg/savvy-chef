@@ -187,6 +187,7 @@ searchInput.addEventListener('input', async (event) => {
 });
 
 
+
 // Function to handle changes in the ingredient input field
 function handleIngredientInputChange(event) {
   const inputValue = event.target.value;
@@ -383,4 +384,5 @@ button.addEventListener('click', function () {
     })
     .catch(error => console.error(error));
 });
+
 

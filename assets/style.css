@@ -6,6 +6,7 @@
 
 .logo {
   width: 15rem;
+  margin-left: 10px;
 }
 
 .tile.is-child.box {
@@ -197,3 +198,77 @@
     }
   }
 
+  .dropdown2 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content2 {
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropbtn {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .my-dropdown {
+    position: relative;
+    left: 30%;
+    top: 40px;
+  }
+  
+  .my-dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    color: black;
+    background-color: #fff;
+    width: fit-content;
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+  }
+  
+  .my-dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    font-size: smaller;
+  }
+  
+  .my-dropdown:hover .my-dropdown-content {
+    display: block;
+  }
+  
+  .my-dropbtn {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+    cursor: pointer;
+    border: none;
+  }
+
+  .my-dropdown-content a:hover {
+    background-color: #eee;
+  }
+
+  .my-dropbtn:hover {
+    background-color: #eee;
+  }
