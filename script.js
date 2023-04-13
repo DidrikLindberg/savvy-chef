@@ -222,9 +222,12 @@ window.onload = function() {
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
     var dietsParam  = diets.length > 0 ? '&diet=' + diets.join(',') : '';
     var maxReadyTimeParam = maxReadyTime > 0 ? '&maxReadyTime=' + maxReadyTime : '';
-    console.log("Diets Param:", dietsParam);
+    
+    var cuisineParam = cuisine.length > 0 ? '&cuisine=' + cuisine.join(',') : '';
+    
 
-    var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + "&" + maxReadyTimeParam + "&" + dietsParam + "&apiKey=" + spoonacularApiKey;
+    var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
+
 
     try {
       var response = await fetch(apiURLspoonacular);
@@ -344,6 +347,27 @@ maxReadyTimeCheckboxes.forEach(checkbox => {
     });
   });
 });
+
+
+
+const cuisineCheckboxes = document.querySelectorAll('#cuisine-dropdown input[type="checkbox"]');
+
+let cuisine = [];
+cuisineCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', event => {
+    const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No ', '').toLowerCase();
+    if (event.target.checked) {
+      cuisine.push(cuisineText);
+    } else {
+      const index = cuisine.indexOf(cuisineText);
+      if (index !== -1) {
+        cuisine.splice(index, 1);
+      }
+    }
+  });
+});
+
+
 
 
 
