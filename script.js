@@ -325,7 +325,6 @@ window.onload = function() {
 
 const intoleranceCheckboxes = document.querySelectorAll('#intolerance-dropdown input[type="checkbox"]');
 
-
 let intolerances = [];
 intoleranceCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
@@ -342,9 +341,9 @@ intoleranceCheckboxes.forEach(checkbox => {
 });
 
 
-// Initialize the cocktail tile and button
+
 var cocktailTile = document.getElementById('suggested-cocktail');
-const button = document.querySelector('#get-cocktails');
+var button = document.querySelector('#get-cocktails');
 
 var recipeTile = document.querySelector('#suggested-recipes');
 
