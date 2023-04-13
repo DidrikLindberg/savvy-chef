@@ -12,7 +12,7 @@
     <div class="hero-body">
       <div class="container">
         <img class="logo" src="./assets/savvy-chef-logo.png">
-
+        <button class="saved-recipes">Saved Recipes</button>
       </div>
     </div>
   </section>
@@ -22,6 +22,7 @@
             <p class="title">Add ingredients</p>
             <input type="text" id="searched-input" placeholder="Search ingredients..." autocomplete="off">
             <div id="suggested-item" class="suggestion-box"></div>
+
           </div>
         </div>
         <div class="tile is-parent is-6">
@@ -260,10 +261,9 @@
       <div class="tile is-ancestor recipes-container">
         <div class="tile is-parent is-12" id="recipes-parent">
           <div class="tile is-child box" id="suggested-recipes">
-            <p class="title">Suggested recipes</p>
           </div>
 
-          <div class="tile is-child box is-4" id="suggested-cocktail">
+          <div class="tile is-child box is-12" id="suggested-cocktail">
             <p class="title">Suggested cocktail</p>
             <p id="cocktail-name"></p>
             <div class="inline"><p id="ingredient1-amount"></p><p id="ingredient1"></p></div>

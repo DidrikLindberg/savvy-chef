@@ -1,39 +1,30 @@
 .hero-body {
-
   background-color: rgba(70, 62, 227, 0.658);
-
 }
 
 .logo {
-
   width: 15rem;
-
+  margin-left: 10px;
+  position: relative;
 }
 
 .tile.is-child.box {
-
-  min-height: 24rem;
-
+    min-height: 24rem;
 }
 
 #get-buttons {
-
-display: inline-flex;
-  position: relative;
-  align-self: center;
-  width: 100%;
-  justify-content: center;
-
+  display: inline-flex;
+    position: relative;
+    align-self: center;
+    width: 100%;
+    justify-content: center;
 }
 
 #get-recipes {
-
-
-  margin-bottom: 1rem;
-  width: 70%;
-  height: 2.5rem;
-  font-size: larger;
-}
+    margin-bottom: 1rem;
+    width: 70%;
+    height: 2.5rem;
+    font-size: larger;
 
 #get-cocktails {
 margin-bottom: 1rem;
@@ -239,6 +230,7 @@ height: 2.5rem;
     display: flex;
     align-items: flex-start;
   }
+
   .recipe + .recipe {
     margin-top: 40px;
   }
@@ -264,7 +256,6 @@ height: 2.5rem;
     cursor: pointer;
   }
   
-
   #cocktail-name {
     font-weight: bold;
   }
@@ -280,6 +271,83 @@ height: 2.5rem;
     #suggested-recipes {
       min-width: 768px;
     }
+    .my-dropbtn {
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap
+    }
   }
 
+  .dropdown2 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content2 {
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .saved-recipes {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    bottom: 15px;
+    left: 65%;
+    width: 200px;
+    font-size: larger;
+  }
 
+  .saved-recipes:hover {
+    background-color: #eee;
+  }
+
+  .save-button {
+    margin: 1rem;
+    position: absolute;
+  }
+
+  .saved-recipe-container h2 {
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  .saved-recipe-container {
+    margin: 3rem;
+  }
+
+.clear-recipes {
+  position: absolute;
+  top: 180px;
+  left: 70px;
+  font-size: larger;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+  cursor: pointer;
+  border: none;
+}
+
+.clear-recipes:hover {
+  background-color: #eee;
+}
