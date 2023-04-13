@@ -222,7 +222,8 @@ window.onload = function() {
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
 
     var dietsParam  = diets.length > 0 ? '&diet=' + diets.join(',') : '';
-    var maxReadyTimeParam = maxReadyTime > 0 ? '&maxReadyTime=' + maxReadyTime : '';
+    var maxReadyTimeParam = selectedMaxReadyTimes.length > 0 ? '&maxReadyTime=' + Math.min(...selectedMaxReadyTimes) : '';
+
     
     var cuisineParam = cuisine.length > 0 ? '&cuisine=' + cuisine.join(',') : '';
     
@@ -344,20 +345,21 @@ intoleranceCheckboxes.forEach(checkbox => {
 
 const maxReadyTimeCheckboxes = document.querySelectorAll('#max-ready-time-dropdown');
 
-let maxReadyTime = 0;
+let selectedMaxReadyTimes = [];
 maxReadyTimeCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
     const maxReadyTimeText = event.target.parentNode.querySelector('span').textContent;
     const maxReadyTimeValue = parseInt(maxReadyTimeText.match(/\d+/)[0]);
 
-    // Uncheck other max ready time checkboxes and update the maxReadyTime variable
-    maxReadyTimeCheckboxes.forEach(otherCheckbox => {
-      if (otherCheckbox !== event.target) {
-        otherCheckbox.checked = false;
-      } else {
-        maxReadyTime = event.target.checked ? maxReadyTimeValue : 0;
+    if (event.target.checked) {
+      // Add the maxReadyTimeValue to the selectedMaxReadyTimes array if it's not already there
+      if (!selectedMaxReadyTimes.includes(maxReadyTimeValue)) {
+        selectedMaxReadyTimes.push(maxReadyTimeValue);
       }
-    });
+    } else {
+      // Remove the maxReadyTimeValue from the selectedMaxReadyTimes array
+      selectedMaxReadyTimes = selectedMaxReadyTimes.filter(value => value !== maxReadyTimeValue);
+    }
   });
 });
 
