@@ -3,7 +3,6 @@
 
 
 
-
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
@@ -227,6 +226,7 @@ sortBySelect.addEventListener('change', event => {
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
 
+
    var dietsParam  = selectedDiet ? '&diet=' + selectedDiet : '';
 
 
@@ -235,6 +235,7 @@ sortBySelect.addEventListener('change', event => {
 
     
     var cuisineParam = selectedCuisine ? '&cuisine=' + selectedCuisine : '';
+
     
 
     var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
@@ -257,7 +258,6 @@ if (sortOrder === "price") {
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
-  
 
 
         // if (recipe.sourceUrl.includes('foodista.com')) {
@@ -322,13 +322,22 @@ resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 };
 
+
 const dietsRadioButtons = document.querySelectorAll('.diets-radio');
 
 let selectedDiet = '';
 dietsRadioButtons.forEach(radioButton => {
   radioButton.addEventListener('click', event => {
     const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
-    selectedDiet = dietsText;
+     // If the clicked radio button is already selected, deselect it
+     if (selectedDiet === dietsText) {
+      event.target.checked = false;
+      selectedDiet = '';
+    } else {
+      // Otherwise, set the selected diet to the clicked radio button's value
+      selectedDiet = dietsText;
+    }
+
   });
 });
 
@@ -353,11 +362,15 @@ intoleranceCheckboxes.forEach(checkbox => {
 
 const maxReadyTimeCheckboxes = document.querySelectorAll('#max-ready-time-dropdown');
 
+
 let selectedMaxReadyTimes = [];
+
+
 maxReadyTimeCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
     const maxReadyTimeText = event.target.parentNode.querySelector('span').textContent;
     const maxReadyTimeValue = parseInt(maxReadyTimeText.match(/\d+/)[0]);
+
 
     if (event.target.checked) {
       // Add the maxReadyTimeValue to the selectedMaxReadyTimes array if it's not already there
@@ -368,6 +381,7 @@ maxReadyTimeCheckboxes.forEach(checkbox => {
       // Remove the maxReadyTimeValue from the selectedMaxReadyTimes array
       selectedMaxReadyTimes = selectedMaxReadyTimes.filter(value => value !== maxReadyTimeValue);
     }
+
   });
 });
 
@@ -378,9 +392,22 @@ let selectedCuisine = '';
 cuisinesRadioButtons.forEach(radioButton => {
   radioButton.addEventListener('click', event => {
     const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+  // If the clicked radio button is already selected, deselect it
+  if (selectedCuisine  === cuisineText) {
+    event.target.checked = false;
+    selectedCuisine  = '';
+  } else {
+    // Otherwise, set the selected diet to the clicked radio button's value
     selectedCuisine = cuisineText;
+  }
+
+
+
+   
+
   });
 });
+
 
 
 
@@ -462,4 +489,4 @@ button.addEventListener('click', function () {
     })
     
     .catch(error => console.error(error));
-});
+  });
