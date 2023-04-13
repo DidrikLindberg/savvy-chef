@@ -228,7 +228,7 @@ window.onload = function() {
     var maxReadyTimeParam = selectedMaxReadyTimes.length > 0 ? '&maxReadyTime=' + Math.min(...selectedMaxReadyTimes) : '';
 
     
-    var cuisineParam = cuisine.length > 0 ? '&cuisine=' + cuisine.join(',') : '';
+    var cuisineParam = selectedCuisine ? '&cuisine=' + selectedCuisine : '';
     
 
     var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
@@ -361,23 +361,14 @@ maxReadyTimeCheckboxes.forEach(checkbox => {
 
 
 
-const cuisineCheckboxes = document.querySelectorAll('#cuisine-dropdown input[type="checkbox"]');
-
-let cuisine = [];
-cuisineCheckboxes.forEach(checkbox => {
-  checkbox.addEventListener('click', event => {
-    const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No ', '').toLowerCase();
-    if (event.target.checked) {
-      cuisine.push(cuisineText);
-    } else {
-      const index = cuisine.indexOf(cuisineText);
-      if (index !== -1) {
-        cuisine.splice(index, 1);
-      }
-    }
+const cuisinesRadioButtons = document.querySelectorAll('.cuisines-radio');
+let selectedCuisine = '';
+cuisinesRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', event => {
+    const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+    selectedCuisine = cuisineText;
   });
 });
-
 
 
 
