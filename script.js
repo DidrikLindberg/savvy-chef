@@ -221,7 +221,10 @@ window.onload = function() {
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
 
-    var dietsParam  = diets.length > 0 ? '&diet=' + diets.join(',') : '';
+   var dietsParam  = selectedDiet ? '&diet=' + selectedDiet : '';
+
+
+
     var maxReadyTimeParam = selectedMaxReadyTimes.length > 0 ? '&maxReadyTime=' + Math.min(...selectedMaxReadyTimes) : '';
 
     
@@ -307,20 +310,13 @@ resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 };
 
-const dietsCheckboxes = document.querySelectorAll('#diets-dropdown input[type="checkbox"]');
-let diets = [];
-dietsCheckboxes.forEach(checkbox => {
-  checkbox.addEventListener('click', event => {
-    const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+const dietsRadioButtons = document.querySelectorAll('.diets-radio');
 
-    if (event.target.checked) {
-      diets.push(dietsText);
-    } else {
-      const index = diets.indexOf(dietsText);
-      if (index !== -1) {
-        diets.splice(index, 1);
-      }
-    }
+let selectedDiet = '';
+dietsRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', event => {
+    const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+    selectedDiet = dietsText;
   });
 });
 
