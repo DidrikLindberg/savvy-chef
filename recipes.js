@@ -26,3 +26,10 @@ savedRecipes.forEach(function(recipe) {
   // add the saved recipe to the results tile
   savedRecipesTile.appendChild(savedRecipeContainer);
 });
+
+var clearRecipes = document.querySelector(".clear-recipes");
+
+clearRecipes.addEventListener("click", function() {
+  localStorage.clear();
+  location.reload();
+});

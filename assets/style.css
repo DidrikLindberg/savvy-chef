@@ -253,6 +253,11 @@ font-weight: bold;
     margin: 2rem;
   }
 
-  a {
-    color: black;
-  }
+.clear-recipes {
+  position: absolute;
+  top: 15%;
+  left: 50px;
+  font-size: larger;
+  
+}
+
