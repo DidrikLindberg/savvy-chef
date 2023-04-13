@@ -32,35 +32,33 @@
                 <button class="dropdown-toggle">Diets</button>
                 <div class="dropdown-menu">
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Gluten free</span>
                     </label>
+
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Ketogenic</span>
                     </label>
+
                     <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Ketogenic</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Vegetarian</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Vegan</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Pescatarian</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Paleo</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "diets-dropdown">
                       <span>Primal</span>
                     </label>
                 </div>
@@ -100,36 +98,23 @@
                     </label>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Cost</button>
-                <div class="dropdown-menu">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $5 per serving</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $10 per serving</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Less than $15 per serving</span>
-                    </label>
-                </div>
-              </div>
+              <select id="sort-by">
+                <option value="price">Price: low to high</option>
+                <option value="-price">Price: high to low</option>
+              </select>
               <div class="dropdown">
                 <button class="dropdown-toggle">Prep Time</button>
                 <div class="dropdown-menu">
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "max-ready-time-dropdown">
                       <span>Less than 20 minutes</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "max-ready-time-dropdown">
                       <span>Less than 40 minutes</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "max-ready-time-dropdown">
                       <span>Less than 60 minutes</span>
                     </label>
                 </div>
@@ -138,124 +123,109 @@
                 <button class="dropdown-toggle">Cuisine</button>
                 <div class="dropdown-menu">
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>African</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>American</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>British</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Chinese</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Caribbean</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Eastern European</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>European</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>French</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>German</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Greek</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Indian</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Irish</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Italian</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Japanese</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Jewish</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Korean</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Latin American</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Mediterranean</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Mexican</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Middle Eastern</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Nordic</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Southern</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Spanish</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Thai</span>
                     </label>
                     <label class="dropdown-item">
-                      <input type="checkbox">
+                      <input type="checkbox" id = "cuisine-dropdown">
                       <span>Vietnamese</span>
                     </label>
+
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropdown-toggle">Difficulty</button>
-                <div class="dropdown-menu">
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Easy</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Medium</span>
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox">
-                      <span>Hard</span>
-                    </label>
-                </div>
-              </div>
+              
 
             </div>
           </div>
