@@ -3,7 +3,6 @@
 
 
 
-
 var searchInput = document.getElementById('searched-input');
 var suggestionBox = document.getElementById('suggested-item');
 var selectedItemsList = document.getElementById('selected-items-list');
@@ -213,6 +212,12 @@ window.onload = function() {
   resultsContainer.style.display = 'none';
 
 
+const sortBySelect = document.getElementById('sort-by');
+let sortOrder = sortBySelect.value;
+sortBySelect.addEventListener('change', event => {
+  sortOrder = event.target.value;
+});
+
   // Add click event listener to the 'Get Recipes' button
   var getRecipesButton = document.getElementById('get-recipes');
   getRecipesButton.addEventListener('click', async function() {
@@ -221,10 +226,17 @@ window.onload = function() {
     var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
     var intolerancesParam = intolerances.length > 0 ? '&intolerances=' + intolerances.join(',') : '';
 
-    var dietsParam  = diets.length > 0 ? '&diet=' + diets.join(',') : '';
-    var maxReadyTimeParam = maxReadyTime > 0 ? '&maxReadyTime=' + maxReadyTime : '';
+
+   var dietsParam  = selectedDiet ? '&diet=' + selectedDiet : '';
+
+
+
+    var maxReadyTimeParam = selectedMaxReadyTimes.length > 0 ? '&maxReadyTime=' + Math.min(...selectedMaxReadyTimes) : '';
+
     
-    var cuisineParam = cuisine.length > 0 ? '&cuisine=' + cuisine.join(',') : '';
+    var cuisineParam = selectedCuisine ? '&cuisine=' + selectedCuisine : '';
+
+
     
 
     var apiURLspoonacular = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" + selectedIngredients + "&number=10&addRecipeInformation=true" + intolerancesParam + maxReadyTimeParam + dietsParam + cuisineParam + "&apiKey=" + spoonacularApiKey;
@@ -239,7 +251,11 @@ window.onload = function() {
 
       // Clear any previous recipe results
       resultsContainer.innerHTML = '';
-
+if (sortOrder === "price") {
+    recipes.results.sort((a, b) => a.pricePerServing - b.pricePerServing);
+  } else if (sortOrder === "-price") {
+    recipes.results.sort((a, b) => b.pricePerServing - a.pricePerServing);
+  }
       // Create and display recipe elements for each fetched recipe
       recipes.results.forEach(function(recipe) {
         // Skip recipes from foodista.com
@@ -312,14 +328,23 @@ dietsCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
     const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
 
-    if (event.target.checked) {
-      diets.push(dietsText);
+
+const dietsRadioButtons = document.querySelectorAll('.diets-radio');
+
+let selectedDiet = '';
+dietsRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', event => {
+    const dietsText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+     // If the clicked radio button is already selected, deselect it
+     if (selectedDiet === dietsText) {
+      event.target.checked = false;
+      selectedDiet = '';
     } else {
-      const index = diets.indexOf(dietsText);
-      if (index !== -1) {
-        diets.splice(index, 1);
-      }
+      // Otherwise, set the selected diet to the clicked radio button's value
+      selectedDiet = dietsText;
     }
+
+
   });
 });
 
@@ -344,39 +369,54 @@ intoleranceCheckboxes.forEach(checkbox => {
 
 const maxReadyTimeCheckboxes = document.querySelectorAll('#max-ready-time-dropdown');
 
-let maxReadyTime = 0;
+
+
+let selectedMaxReadyTimes = [];
+
+
+
 maxReadyTimeCheckboxes.forEach(checkbox => {
   checkbox.addEventListener('click', event => {
     const maxReadyTimeText = event.target.parentNode.querySelector('span').textContent;
     const maxReadyTimeValue = parseInt(maxReadyTimeText.match(/\d+/)[0]);
 
-    // Uncheck other max ready time checkboxes and update the maxReadyTime variable
-    maxReadyTimeCheckboxes.forEach(otherCheckbox => {
-      if (otherCheckbox !== event.target) {
-        otherCheckbox.checked = false;
-      } else {
-        maxReadyTime = event.target.checked ? maxReadyTimeValue : 0;
+
+
+    if (event.target.checked) {
+      // Add the maxReadyTimeValue to the selectedMaxReadyTimes array if it's not already there
+      if (!selectedMaxReadyTimes.includes(maxReadyTimeValue)) {
+        selectedMaxReadyTimes.push(maxReadyTimeValue);
       }
-    });
+    } else {
+      // Remove the maxReadyTimeValue from the selectedMaxReadyTimes array
+      selectedMaxReadyTimes = selectedMaxReadyTimes.filter(value => value !== maxReadyTimeValue);
+    }
+
   });
 });
 
 
 
-const cuisineCheckboxes = document.querySelectorAll('#cuisine-dropdown input[type="checkbox"]');
 
-let cuisine = [];
-cuisineCheckboxes.forEach(checkbox => {
-  checkbox.addEventListener('click', event => {
-    const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No ', '').toLowerCase();
-    if (event.target.checked) {
-      cuisine.push(cuisineText);
-    } else {
-      const index = cuisine.indexOf(cuisineText);
-      if (index !== -1) {
-        cuisine.splice(index, 1);
-      }
-    }
+const cuisinesRadioButtons = document.querySelectorAll('.cuisines-radio');
+let selectedCuisine = '';
+cuisinesRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', event => {
+    const cuisineText = event.target.parentNode.querySelector('span').textContent.replace('No', '').toLowerCase();
+  // If the clicked radio button is already selected, deselect it
+  if (selectedCuisine  === cuisineText) {
+    event.target.checked = false;
+    selectedCuisine  = '';
+  } else {
+    // Otherwise, set the selected diet to the clicked radio button's value
+    selectedCuisine = cuisineText;
+  }
+
+
+
+   
+
+
   });
 });
 
@@ -461,4 +501,6 @@ button.addEventListener('click', function () {
     })
     
     .catch(error => console.error(error));
-});
+
+  });
+
