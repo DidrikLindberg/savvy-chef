@@ -1,57 +1,58 @@
 .hero-body {
 
-    background-color: rgba(70, 62, 227, 0.658);
+  background-color: rgba(70, 62, 227, 0.658);
 
 }
 
 .logo {
+
   width: 15rem;
+
 }
 
 .tile.is-child.box {
 
-    min-height: 24rem;
+  min-height: 24rem;
 
 }
 
 #get-buttons {
 
-  display: inline-flex;
-    position: relative;
-    align-self: center;
-    width: 100%;
-    justify-content: center;
+display: inline-flex;
+  position: relative;
+  align-self: center;
+  width: 100%;
+  justify-content: center;
 
 }
 
 #get-recipes {
 
 
-    margin-bottom: 1rem;
-    width: 70%;
-    height: 2.5rem;
-    font-size: larger;
+  margin-bottom: 1rem;
+  width: 70%;
+  height: 2.5rem;
+  font-size: larger;
 }
 
 #get-cocktails {
-  margin-bottom: 1rem;
-  margin-left: .5rem;
-  height: 2.5rem;
+margin-bottom: 1rem;
+margin-left: .5rem;
+height: 2.5rem;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-toggle {
-    padding: .5rem;
-    background-color: #ffffff;
-    border: none;
-    cursor: pointer;
-    margin-bottom: .5rem;
-  }
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-toggle {
+  padding: .5rem;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: .5rem;
+}
   .dropdown-toggle:hover {
     background-color: #ebebeb;
   }
@@ -81,74 +82,158 @@
     display: block;
   }
 
-  #menu {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .dropdown-menu {
-    max-height: 20rem;
-    overflow-y: auto; 
-  }
-  
-  .dropdown-item {
-    display: flex;
-    align-items: center;
-    font-size: .8rem;
-  }
-  
-  .dropdown-item input[type="checkbox"] {
-    margin-right: .5rem;
-  }
+.dropdown-toggle:hover {
+  background-color: #ebebeb;
+}
 
-  .current-flex {
-    display: flex;
-  }
+.dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 5.5rem;
+  display: none;
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(95, 95, 95, 0.635);
+}
 
-  .current-filters {
-    margin: auto;
-    text-align: center;
-    height: 100%;
-  }
+.dropdown-menu label {
+  display: block;
+  padding: .25rem;
+  text-decoration: none;
+  color: #333;
+  font-size: smaller;
+}
 
-  .current-ingredients {
-    margin: auto;
-    text-align: center;
-    height: 100%;
-  }
+.dropdown-menu label:hover {
+  background-color: #eee;
+}
 
-  .selected-items {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu {
+  max-height: 20rem;
+  overflow-y: auto; 
+}
 
   .suggestion-item:hover {
     background-color: #eee;
     cursor: pointer;
   }
 
-  .delete-button {
-    margin-left: .5rem;
-  }
 
-  #cocktail-image {
-    max-width: 15rem;
-    margin: .5rem;
-  }
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  font-size: .8rem;
+}
 
-  .inline {
-    display: inline-flex;
-  }
+.dropdown-item input[type="checkbox"] {
+  margin-right: .5rem;
+}
 
-  .inline p {
-    margin-right: 10px;
-  }
+.current-flex {
+  display: flex;
+}
 
-  #suggested-cocktail {
+.current-filters {
+  margin: auto;
+  text-align: center;
+  height: 100%;
+}
+
+.current-ingredients {
+  margin: auto;
+  text-align: center;
+  height: 100%;
+}
+
+
+.selected-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.suggestion-item:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.delete-button {
+  margin-left: .5rem;
+}
+
+#cocktail-image {
+  max-width: 15rem;
+  margin: .5rem;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.inline p {
+  margin-right: 10px;
+}
+
+#suggested-cocktail {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe {
+  display: flex;
+  align-items: flex-start;
+}
+.recipe + .recipe {
+  margin-top: 40px;
+}
+
+.recipe-img-title-container {
+  max-width: 400px;
+  height: auto;
+}
+
+.recipe-img-title-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.recipe-info-container {
+  width: 80%;
+  margin-left: 20px;
+}
+
+.recipe-title {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
+
+#cocktail-name {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  #recipes-parent {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap-reverse;
   }
+  #suggested-cocktail {
+    height: auto;
+  }
+  #suggested-recipes {
+    min-width: 768px;
+  }
+}
 
   .recipe {
     display: flex;
@@ -196,4 +281,5 @@
       min-width: 768px;
     }
   }
+
 
