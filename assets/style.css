@@ -252,3 +252,7 @@ font-weight: bold;
   .saved-recipe-container {
     margin: 2rem;
   }
+
+  a {
+    color: black;
+  }
