@@ -37,12 +37,12 @@ This app was created to address the common problem faced by users who struggle t
 
 ## User Stories
 
-As a waste-conscious person , I want to filter recipes based on ingredients I already have
-As a busy person , I want to filter recipes based on prep time
-As someone who enjoys alcohol, I’d like to receive beverage suggestions
-As someone who has a food intolerance, I want to filter out recipes that would cause me problems
-As someone you is a foodie, I want to filter for recipes based on cuisine type
-As someone who is on a specific diet, I want to be able to search recipes based on diet type
+- As a waste-conscious person , I want to filter recipes based on ingredients I already have
+- As a busy person , I want to filter recipes based on prep time
+- As someone who enjoys alcohol, I’d like to receive beverage suggestions
+- As someone who has a food intolerance, I want to filter out recipes that would cause me problems
+- As someone you is a foodie, I want to filter for recipes based on cuisine type
+- As someone who is on a specific diet, I want to be able to search recipes based on diet type
 
 ## Usage
 
