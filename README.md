@@ -55,7 +55,10 @@ As someone who is on a specific diet, I want to be able to search recipes based 
 7. If you want a random cocktail suggestion, click the "I want a drink" button to the right of the "get recipes" button.
 8. If you would like to see your saved recipes, click on the "saved recipes" button at the top of the page. You have the option of clearing your saved recipes.
 
-![Alt Text](./assets/2023-04-13%2023.03.34.gif)
+![Alt Text](./assets/2023-04-13%2023.03.34.gif)<br>
+
+The site is responsize to smaller screen sizes (shown below)<br>
+![Alt Text](./assets/screen-shrinking-gif.gif)<br>
 
 ## Code Highlight
 
