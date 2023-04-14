@@ -43,6 +43,7 @@ This app was created to address the common problem faced by users who struggle t
 - As someone who has a food intolerance, I want to filter out recipes that would cause me problems
 - As someone you is a foodie, I want to filter for recipes based on cuisine type
 - As someone who is on a specific diet, I want to be able to search recipes based on diet type
+- As someone who is cost-conscious, I want to sort recipes from least to most expensive
 
 ## Usage
 
@@ -57,6 +58,7 @@ This app was created to address the common problem faced by users who struggle t
 
 ![Alt Text](./assets/2023-04-13%2023.03.34.gif)<br>
 
+Bulma was used for the CSS framework. Bulma is a mobile-first framework tool that utilizes Flexbox. We used Bulma for our page layout and intuitive responsiveness.
 The site is responsize to smaller screen sizes (shown below)<br>
 ![Alt Text](./assets/screen-shrinking-gif.gif)<br>
 
