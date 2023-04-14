@@ -35,6 +35,15 @@ This app was created to address the common problem faced by users who struggle t
 - Git
   [Learn about Git](https://git-scm.com/)
 
+## User Stories
+
+As a waste-conscious person , I want to filter recipes based on ingredients I already have
+As a busy person , I want to filter recipes based on prep time
+As someone who enjoys alcohol, I’d like to receive beverage suggestions
+As someone who has a food intolerance, I want to filter out recipes that would cause me problems
+As someone you is a foodie, I want to filter for recipes based on cuisine type
+As someone who is on a specific diet, I want to be able to search recipes based on diet type
+
 ## Usage
 
 1. Start typing in the "add ingredients" search box to find the ingredient you want.
@@ -93,6 +102,8 @@ I wanted to highlight this code snippet because this code is by far the most com
 - Learned how to use the .map, .some, forEach methods
 - Furthered our knowledge of server side apis
 - Learned how use Bulma
+- Learned about input type:radio
+- Learned how to use api documents to create a complex api call
 - learned how to make complex searchs on apis
 
 ## Authors Info
@@ -141,23 +152,3 @@ Didrik Lindberg
 ```
 
 ```
-
-Create a basic HTML layout using Bootstrap that includes a form with an input field for city name and a button to submit the form.
-
-Add event listeners to the form and the button using JavaScript to handle user input and submission.
-
-Use a third-party weather API, such as OpenWeatherMap, to retrieve the current weather data for the entered city. You can use the fetch() method to make a GET request to the API endpoint with the city name and API key as parameters.
-
-Parse the JSON response from the API to extract the necessary information, such as the temperature, humidity, wind speed, and weather condition icon.
-
-Display the current weather data on the webpage using JavaScript and dynamically created HTML elements.
-
-Use the same API to retrieve the 5-day forecast for the entered city. You can make a similar GET request to a different API endpoint that provides the forecast data.
-
-Parse the JSON response from the API to extract the necessary information for the forecast, such as the date, temperature, humidity, and weather condition icon.
-
-Display the 5-day forecast data on the webpage using JavaScript and dynamically created HTML elements.
-
-Add functionality to store the searched city in local storage and display it in a search history section on the webpage.
-
-Add event listeners to the search history items to allow the user to click on them and retrieve the current and future weather data for that city.
