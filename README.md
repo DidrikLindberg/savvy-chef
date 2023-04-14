@@ -60,6 +60,9 @@ This app was created to address the common problem faced by users who struggle t
 The site is responsize to smaller screen sizes (shown below)<br>
 ![Alt Text](./assets/screen-shrinking-gif.gif)<br>
 
+The app calls two third party API (Spoonacular & CocktailDB) can be seen in console
+![Alt Text](/assets/ezgif.com-gif-maker.gif)<br>
+
 ## Code Highlight
 
 I wanted to highlight this code snippet because this code is by far the most complex api search any of us have done. sets an event listener for the button with ID "get-recipes". When the button is clicked, it makes an asynchronous API call to the Spoonacular complexSearch endpoint, using the parameters created in the preceding lines of code. The API URL is constructed by concatenating the various parameters together. One cool thing about this code is the use of template literals to create the URL string in a more readable and efficient way. Another cool thing is the use of the ternary operator to add optional parameters to the URL only if they are present.
