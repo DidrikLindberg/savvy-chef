@@ -1,305 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>savvy chef</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
-  </head>
-  <body>
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <img class="logo" src="./assets/savvy-chef-logo.png">
-          <button class="saved-recipes">Saved Recipes</button>
-        </div>
-      </div>
-    </section>
-    <div class="tile is-ancestor">
-      <div class="tile is-parent is-6">
-        <div class="tile is-child box search-container">
-          <p class="title">Add ingredients</p>
-          <input type="text" id="searched-input" placeholder="Search ingredients..." autocomplete="off">
-          <div id="suggested-item" class="suggestion-box"></div>
-        </div>
-      </div>
-      <div class="tile is-parent is-6">
-        <div class="tile is-child box filters">
-          <p class="title">Filters</p>
-          <div id="menu">
-            <div class="dropdown">
-              <button class="dropdown-toggle">Diets</button>
-              <div class="dropdown-menu">
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Gluten Free</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Ketogenic</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Vegetarian</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Vegan</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Pescatarian</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Paleo</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="diets" class="diets-radio">
-                  <span>Primal</span>
-                </label>
-              </div>
-            </div>
-            <div class="dropdown" id="intolerance-dropdown">
-              <button class="dropdown-toggle">Intolerances</button>
-              <div class="dropdown-menu">
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Dairy</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Eggs</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Grains</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Peanuts</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Shellfish</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Soy</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox">
-                  <span>No Sulfites</span>
-                </label>
-              </div>
-            </div>
-            <div class="dropdown">
-              <button class="dropdown-toggle">Sort by Price</button>
-              <div class="dropdown-menu">
-                <label class="dropdown-item">
-                  <input type="radio" name="sort-by" value="price" class="price-radio">
-                  <span>low to high</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="sort-by" value="-price" class="price-radio">
-                  <span>high to low</span>
-                </label>
-              </div>
-            </div>
-            <div class="dropdown">
-              <button class="dropdown-toggle">Prep Time</button>
-              <div class="dropdown-menu">
-                <label class="dropdown-item">
-                  <input type="checkbox" id="max-ready-time-dropdown">
-                  <span>Less than 20 minutes</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox" id="max-ready-time-dropdown">
-                  <span>Less than 40 minutes</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="checkbox" id="max-ready-time-dropdown">
-                  <span>Less than 60 minutes</span>
-                </label>
-              </div>
-            </div>
-            <div class="dropdown">
-              <button class="dropdown-toggle">Cuisine</button>
-              <div class="dropdown-menu">
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>African</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>American</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>British</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Chinese</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Caribbean</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Eastern European</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>European</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>French</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>German</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Greek</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Indian</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Irish</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Italian</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Japanese</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Jewish</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Korean</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Latin American</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Mediterranean</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Mexican</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Middle Eastern</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Nordic</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Southern</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Spanish</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Thai</span>
-                </label>
-                <label class="dropdown-item">
-                  <input type="radio" name="cuisines" class="cuisines-radio">
-                  <span>Vietnamese</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tile is-ancestor">
-      <div class="tile is-parent">
-        <div class="tile is-child is-12 box selected-items">
-          <div class="current-flex">
-            <div class="current-ingredients">
-              <p class="title">Current ingredients</p>
-              <ul id="selected-items-list"></ul>
-            </div>
-            <div class="current-filters">
-              <p class="title">Current filters</p>
-              <ul id="selected-filters-list"></ul>
-            </div>
-          </div>
-          <div id="get-buttons">
-            <button id="get-recipes">Get Recipes</button>
-            <button id="get-cocktails">I want a drink</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tile is-ancestor recipes-container">
-      <div class="tile is-parent is-12" id="recipes-parent">
-        <div class="tile is-child box" id="suggested-recipes"></div>
-        <div class="tile is-child box" id="suggested-cocktail">
-          <p class="title">Suggested cocktail</p>
-          <p id="cocktail-name"></p>
-          <div class="inline">
-            <p id="ingredient1-amount"></p>
-            <p id="ingredient1"></p>
-          </div>
-          <div class="inline">
-            <p id="ingredient2-amount"></p>
-            <p id="ingredient2"></p>
-          </div>
-          <div class="inline">
-            <p id="ingredient3-amount"></p>
-            <p id="ingredient3"></p>
-          </div>
-          <div class="inline">
-            <p id="ingredient4-amount"></p>
-            <p id="ingredient4"></p>
-          </div>
-          <div class="inline">
-            <p id="ingredient5-amount"></p>
-            <p id="ingredient5"></p>
-          </div>
-          <div class="inline">
-            <p id="ingredient6-amount"></p>
-            <p id="ingredient6"></p>
-          </div>
 
-          <div class="tile is-child box" id="suggested-cocktail">
-            <p class="title">Suggested cocktail</p>
-            <p id="cocktail-name"></p>
-            <div class="inline"><p id="ingredient1-amount"></p><p id="ingredient1"></p></div>
-            <div class="inline"><p id="ingredient2-amount"></p><p id="ingredient2"></p></div>
-            <div class="inline"><p id="ingredient3-amount"></p><p id="ingredient3"></p></div>
-            <div class="inline"><p id="ingredient4-amount"></p><p id="ingredient4"></p></div>
-            <div class="inline"><p id="ingredient5-amount"></p><p id="ingredient5"></p></div>
-            <div class="inline"><p id="ingredient6-amount"></p><p id="ingredient6"></p></div>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>savvy chef</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link rel="stylesheet" href="./assets/style.css"> </head>
 
-            <p id="cocktail-instructions"></p>
-            <img id="cocktail-image">
-          </div>
-        </div>
-      </div>
-
-  <script src="./script.js"></script>
+<body>
+	<section class="hero is-primary">
+		<div class="hero-body">
+			<div class="container"> <img class="logo" src="./assets/savvy-chef-logo.png">
+				<button class="saved-recipes">Saved Recipes</button>
+			</div>
+		</div>
+	</section>
+	<div class="tile is-ancestor">
+		<div class="tile is-parent is-6">
+			<div class="tile is-child box search-container">
+				<p class="title">Add ingredients</p>
+				<input type="text" id="searched-input" placeholder="Search ingredients..." autocomplete="off">
+				<div id="suggested-item" class="suggestion-box"></div>
+			</div>
+		</div>
+		<div class="tile is-parent is-6">
+			<div class="tile is-child box filters">
+				<p class="title">Filters</p>
+				<div id="menu">
+					<div class="dropdown">
+						<button class="dropdown-toggle">Diets</button>
+						<div class="dropdown-menu">
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Gluten Free</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Ketogenic</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Vegetarian</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Vegan</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Pescatarian</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Paleo</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="diets" class="diets-radio"> <span>Primal</span> </label>
+						</div>
+					</div>
+					<div class="dropdown" id="intolerance-dropdown">
+						<button class="dropdown-toggle">Intolerances</button>
+						<div class="dropdown-menu">
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Dairy</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Eggs</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Grains</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Peanuts</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Shellfish</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Soy</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox"> <span>No Sulfites</span> </label>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropdown-toggle">Sort by Price</button>
+						<div class="dropdown-menu">
+							<label class="dropdown-item">
+								<input type="radio" name="sort-by" value="price" class="price-radio"> <span>low to high</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="sort-by" value="-price" class="price-radio"> <span>high to low</span> </label>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropdown-toggle">Prep Time</button>
+						<div class="dropdown-menu">
+							<label class="dropdown-item">
+								<input type="checkbox" id="max-ready-time-dropdown"> <span>Less than 20 minutes</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox" id="max-ready-time-dropdown"> <span>Less than 40 minutes</span> </label>
+							<label class="dropdown-item">
+								<input type="checkbox" id="max-ready-time-dropdown"> <span>Less than 60 minutes</span> </label>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropdown-toggle">Cuisine</button>
+						<div class="dropdown-menu">
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>African</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>American</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>British</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Chinese</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Caribbean</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Eastern European</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>European</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>French</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>German</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Greek</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Indian</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Irish</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Italian</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Japanese</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Jewish</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Korean</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Latin American</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Mediterranean</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Mexican</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Middle Eastern</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Nordic</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Southern</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Spanish</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Thai</span> </label>
+							<label class="dropdown-item">
+								<input type="radio" name="cuisines" class="cuisines-radio"> <span>Vietnamese</span> </label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tile is-ancestor">
+		<div class="tile is-parent">
+			<div class="tile is-child is-12 box selected-items">
+				<div class="current-flex">
+					<div class="current-ingredients">
+						<p class="title">Current ingredients</p>
+						<ul id="selected-items-list"></ul>
+					</div>
+					<div class="current-filters">
+						<p class="title">Current filters</p>
+						<ul id="selected-filters-list"></ul>
+					</div>
+				</div>
+				<div id="get-buttons">
+					<button id="get-recipes">Get Recipes</button>
+					<button id="get-cocktails">I want a drink</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tile is-ancestor recipes-container">
+		<div class="tile is-parent is-12" id="recipes-parent">
+			<div class="tile is-child box" id="suggested-recipes"></div>
+			<div class="tile is-child box" id="suggested-cocktail">
+				<p class="title">Suggested cocktail</p>
+				<p id="cocktail-name"></p>
+				<div class="inline">
+					<p id="ingredient1-amount"></p>
+					<p id="ingredient1"></p>
+				</div>
+				<div class="inline">
+					<p id="ingredient2-amount"></p>
+					<p id="ingredient2"></p>
+				</div>
+				<div class="inline">
+					<p id="ingredient3-amount"></p>
+					<p id="ingredient3"></p>
+				</div>
+				<div class="inline">
+					<p id="ingredient4-amount"></p>
+					<p id="ingredient4"></p>
+				</div>
+				<div class="inline">
+					<p id="ingredient5-amount"></p>
+					<p id="ingredient5"></p>
+				</div>
+				<div class="inline">
+					<p id="ingredient6-amount"></p>
+					<p id="ingredient6"></p>
+				</div>
+				<p id="cocktail-instructions"></p> <img id="cocktail-image"> </div>
+		</div>
+	</div>
+	<script src="./script.js"></script>
 </body>
+
 </html>
