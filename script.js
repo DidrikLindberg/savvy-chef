@@ -483,24 +483,41 @@ priceRadioButtons.forEach((radioButton) => {
 
 //Function for updating the selected filters list
 function updateSelectedFilters() {
-  selectedFiltersContainer.innerHTML = "";
+  var dietElement = selectedFiltersContainer.querySelector(".diet-filter");
+  var cuisineElement = selectedFiltersContainer.querySelector(".cuisine-filter");
+  var priceElement = selectedFiltersContainer.querySelector(".price-filter");
 
   if (selectedDiet) {
-    const dietElement = document.createElement("span");
-    dietElement.textContent = selectedDiet;
-    selectedFiltersContainer.appendChild(dietElement);
+    if (!dietElement) {
+      var newDietElement = document.createElement("div");
+      newDietElement.classList.add("diet-filter");
+      selectedFiltersContainer.appendChild(newDietElement);
+    }
+    selectedFiltersContainer.querySelector(".diet-filter").textContent = selectedDiet;
+  } else if (dietElement) {
+    selectedFiltersContainer.removeChild(dietElement);
   }
 
   if (selectedCuisine) {
-    const cuisineElement = document.createElement("span");
-    cuisineElement.textContent = selectedCuisine;
-    selectedFiltersContainer.appendChild(cuisineElement);
+    if (!cuisineElement) {
+      var newCuisineElement = document.createElement("div");
+      newCuisineElement.classList.add("cuisine-filter");
+      selectedFiltersContainer.appendChild(newCuisineElement);
+    }
+    selectedFiltersContainer.querySelector(".cuisine-filter").textContent = selectedCuisine;
+  } else if (cuisineElement) {
+    selectedFiltersContainer.removeChild(cuisineElement);
   }
 
   if (selectedPrice) {
-    const priceElement = document.createElement("span");
-    priceElement.textContent = selectedPrice;
-    selectedFiltersContainer.appendChild(priceElement);
+    if (!priceElement) {
+      var newPriceElement = document.createElement("div");
+      newPriceElement.classList.add("price-filter");
+      selectedFiltersContainer.appendChild(newPriceElement);
+    }
+    selectedFiltersContainer.querySelector(".price-filter").textContent = selectedPrice;
+  } else if (priceElement) {
+    selectedFiltersContainer.removeChild(priceElement);
   }
 }
 
