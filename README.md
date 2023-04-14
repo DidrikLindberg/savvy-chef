@@ -43,6 +43,7 @@ This app was created to address the common problem faced by users who struggle t
 - As someone who has a food intolerance, I want to filter out recipes that would cause me problems
 - As someone you is a foodie, I want to filter for recipes based on cuisine type
 - As someone who is on a specific diet, I want to be able to search recipes based on diet type
+- As someone who is cost-conscious, I want to sort recipes from least to most expensive
 
 ## Usage
 
