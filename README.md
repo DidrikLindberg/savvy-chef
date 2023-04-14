@@ -37,14 +37,14 @@ This app was created to address the common problem faced by users who struggle t
 
 ## Usage
 
-1. Start typing in the "add ingredients" search box to find the ingredient you want
+1. Start typing in the "add ingredients" search box to find the ingredient you want.
 2. Press enter or click the ingredient from the suggestion list.
-3. The ingredient is now populated in the "current ingredients" list, but you can remove it by clicking the "x" next to it
-4. Once you have selected your desired ingredients, you can chose any filters you would like to apply to your recipe search, pick as many as you would like, but you can only pick 1 type of diet and 1 type of cuisine at a time.
-5. Once you are satisfied with your selections, click the "get recipes" button at the bottom of the page
-6. You will be shown recipes that meet your criteria, you can save recipes to your "saved recipes" page by clicking the "save" button next to the image.
-7. If you want a random cocktail suggestion , click the "I want a drink" button to the right of the "get recipes" button.
-8. If you would like to see your saved recipes, click on the "saved recipes" button at the top of the page, you have th eoption of clearing your saved recipes.
+3. The ingredient is now populated in the "current ingredients" list, but you can remove it by clicking the "x" next to it.
+4. Once you have selected your desired ingredients, you can choose any filters you would like to apply to your recipe search. Pick as many as you would like, but you can only pick one type of diet and one type of cuisine at a time.
+5. Once you are satisfied with your selections, click the "get recipes" button at the bottom of the page.
+6. You will be shown recipes that meet your criteria. You can save recipes to your "saved recipes" page by clicking the "save" button next to the image.
+7. If you want a random cocktail suggestion, click the "I want a drink" button to the right of the "get recipes" button.
+8. If you would like to see your saved recipes, click on the "saved recipes" button at the top of the page. You have the option of clearing your saved recipes.
 
 ![Alt Text](./assets/2023-04-13%2023.03.34.gif)
 
