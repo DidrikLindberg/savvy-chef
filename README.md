@@ -58,6 +58,7 @@ This app was created to address the common problem faced by users who struggle t
 
 ![Alt Text](./assets/2023-04-13%2023.03.34.gif)<br>
 
+Bulma was used for the CSS framework. Bulma is a mobile-first framework tool that utilizes Flexbox. We used Bulma for our page layout and intuitive responsiveness.
 The site is responsize to smaller screen sizes (shown below)<br>
 ![Alt Text](./assets/screen-shrinking-gif.gif)<br>
 
