@@ -116,28 +116,3 @@ Didrik Lindberg
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
-
-```
-
-```
-
-Create a basic HTML layout using Bootstrap that includes a form with an input field for city name and a button to submit the form.
-
-Add event listeners to the form and the button using JavaScript to handle user input and submission.
-
-Use a third-party weather API, such as OpenWeatherMap, to retrieve the current weather data for the entered city. You can use the fetch() method to make a GET request to the API endpoint with the city name and API key as parameters.
-
-Parse the JSON response from the API to extract the necessary information, such as the temperature, humidity, wind speed, and weather condition icon.
-
-Display the current weather data on the webpage using JavaScript and dynamically created HTML elements.
-
-Use the same API to retrieve the 5-day forecast for the entered city. You can make a similar GET request to a different API endpoint that provides the forecast data.
-
-Parse the JSON response from the API to extract the necessary information for the forecast, such as the date, temperature, humidity, and weather condition icon.
-
-Display the 5-day forecast data on the webpage using JavaScript and dynamically created HTML elements.
-
-Add functionality to store the searched city in local storage and display it in a search history section on the webpage.
-
-Add event listeners to the search history items to allow the user to click on them and retrieve the current and future weather data for that city.

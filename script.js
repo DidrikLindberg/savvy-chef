@@ -334,8 +334,8 @@ window.onload = function () {
         recipeElement.classList.add("recipe");
 
         // Create a container for the recipe image, title, and save button
-        var recipeImgTitleSaveContainer = document.createElement("div");
-        recipeImgTitleSaveContainer.classList.add(
+        var recipeContainer = document.createElement("div");
+        recipeContainer.classList.add(
           "recipe-img-title-save-container"
         );
 
@@ -347,36 +347,36 @@ window.onload = function () {
         recipeTitle.style.fontWeight = "bold";
         recipeTitle.style.fontSize = "1.2rem";
         recipeTitle.target = "_blank"; // open link in a new tab
-        recipeImgTitleSaveContainer.appendChild(recipeTitle);
+        recipeContainer.appendChild(recipeTitle);
 
         // Create an img element for the recipe image and add it to the container
         var recipeImage = document.createElement("img");
         recipeImage.src = recipe.image;
         recipeImage.alt = recipe.title;
         recipeImage.classList.add("recipe-image");
-        recipeImgTitleSaveContainer.appendChild(recipeImage);
+        recipeContainer.appendChild(recipeImage);
 
-        // Create a button element for saving the recipe and add it to the container
+        // creating save button and adding to recipe container
         var saveButton = document.createElement("button");
         saveButton.textContent = "Save";
         saveButton.classList.add("save-button");
-        recipeImgTitleSaveContainer.appendChild(saveButton);
+        recipeContainer.appendChild(saveButton);
 
-        // Add a click event listener to the save button
+        // add event listener to save button
         saveButton.addEventListener("click", function () {
           var recipeName = recipe.title;
           var recipeImage = recipe.image;
 
           var recipeSummary = recipe.summary.replace(/<[^>]*>?/gm, "");
 
-          // Create an object to represent the saved recipe
+          // create an object for the saved recipe
           var savedRecipe = {
             name: recipeName,
             image: recipeImage,
             summary: recipeSummary,
           };
 
-          // Get the existing saved recipes from local storage
+          // retrieve saved recipes, if none, insert empy array
           var savedRecipes =
             JSON.parse(localStorage.getItem("savedRecipes")) || [];
 
@@ -385,7 +385,7 @@ window.onload = function () {
           localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
         });
         // Add the recipe image, title, and save button container to the recipe element
-        recipeElement.appendChild(recipeImgTitleSaveContainer);
+        recipeElement.appendChild(recipeContainer);
 
         var recipeInfoContainer = document.createElement("div");
         recipeInfoContainer.classList.add("recipe-info-container");
