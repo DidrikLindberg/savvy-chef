@@ -620,6 +620,7 @@ cocktailButton.addEventListener("click", function () {
       var ingredient6 = data.drinks[0].strIngredient6;
       var instructions = data.drinks[0].strInstructions;
       var image = data.drinks[0].strDrinkThumb;
+      console.log(data);
 
       // Populate the HTML with the fetched cocktail information
       document.getElementById("cocktail-name").textContent = cocktailName;
