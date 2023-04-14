@@ -272,7 +272,7 @@ window.onload = function () {
   resultsContainer.style.display = "none";
 
   // Get the 'Sort By' radio buttons
-  const sortRadioButtons = document.querySelectorAll('input[name="sort-by"]');
+  var sortRadioButtons = document.querySelectorAll('input[name="sort-by"]');
   let sortOrder = "price";
 
   sortRadioButtons.forEach((radioButton) => {
@@ -424,6 +424,9 @@ let selectedDiet = "";
 let selectedCuisine = "";
 
 let selectedPrice = "";
+
+
+
 dietsRadioButtons.forEach((radioButton) => {
   radioButton.addEventListener("click", (event) => {
     var dietsText = event.target.parentNode

@@ -37,40 +37,63 @@ This app was created to address the common problem faced by users who struggle t
 
 ## Usage
 
-1. Start typing in the "add ingredients" search box to find the ingredient you want
+1. Start typing in the "add ingredients" search box to find the ingredient you want.
 2. Press enter or click the ingredient from the suggestion list.
-3. The ingredient is now populated in the "current ingredients" list, but you can remove it by clicking the "x" next to it
-4. Once you have selected your desired ingredients, you can chose any filters you would like to apply to your recipe search, pick as many as you would like, but you can only pick 1 type of diet and 1 type of cuisine at a time.
-5. Once you are satisfied with your selections, click the "get recipes" button at the bottom of the page
-6. You will be shown recipes that meet your criteria, you can save recipes to your "saved recipes" page by clicking the "save" button next to the image.
-7. If you want a random cocktail suggestion , click the "I want a drink" button to the right of the "get recipes" button.
-8. If you would like to see your saved recipes, click on the "saved recipes" button at the top of the page, you have th eoption of clearing your saved recipes.
+3. The ingredient is now populated in the "current ingredients" list, but you can remove it by clicking the "x" next to it.
+4. Once you have selected your desired ingredients, you can choose any filters you would like to apply to your recipe search. Pick as many as you would like, but you can only pick one type of diet and one type of cuisine at a time.
+5. Once you are satisfied with your selections, click the "get recipes" button at the bottom of the page.
+6. You will be shown recipes that meet your criteria. You can save recipes to your "saved recipes" page by clicking the "save" button next to the image.
+7. If you want a random cocktail suggestion, click the "I want a drink" button to the right of the "get recipes" button.
+8. If you would like to see your saved recipes, click on the "saved recipes" button at the top of the page. You have the option of clearing your saved recipes.
 
 ![Alt Text](./assets/2023-04-13%2023.03.34.gif)
 
 ## Code Highlight
 
-I wanted to highlight this code snippet because I think it might be the first time I added html elements withing my JavaScript in this particular way and I just that it was neat.all the data (forecastDate, iconUrl, highTemp, lowTemp, wind speed and humidity) values are inserted using string concatenation.
+I wanted to highlight this code snippet because this code is by far the most complex api search any of us have done. sets an event listener for the button with ID "get-recipes". When the button is clicked, it makes an asynchronous API call to the Spoonacular complexSearch endpoint, using the parameters created in the preceding lines of code. The API URL is constructed by concatenating the various parameters together. One cool thing about this code is the use of template literals to create the URL string in a more readable and efficient way. Another cool thing is the use of the ternary operator to add optional parameters to the URL only if they are present.
 
 ```JavaScript
-  var card = document.createElement("div");
-      card.classList.add("col");
-      card.innerHTML = '<div class="card border-dark bg-white"><div class="card-body">' +
-        '<h5 class="card-title">' + forecastDate + '</h5>' +
-        '<img src="' + iconUrl + '">' +
-        '<p class="card-text">High: ' + highTemp + '°F</p>' +
-        '<p class="card-text">Low: ' + lowTemp + '°F</p>' +
-        '<p class="card-text">Wind: ' + forecastsForDate[0].wind.speed + ' mph</p>' +
-        '<p class="card-text">Humidity: ' + forecastsForDate[0].main.humidity + '%</p>' +
-        '</div></div>';
+ var getRecipesButton = document.getElementById("get-recipes");
+  getRecipesButton.addEventListener("click", async function () {
+    resultsContainer.style.display = "";
+    cocktailButton.classList.add("is-4");
+
+    var selectedIngredients = selectedItems.join();
+
+    var spoonacularApiKey = "2e39a525784f4df6bc533d1a0e3e2403";
+
+    var intolerancesParam =
+      intolerances.length > 0 ? "&intolerances=" + intolerances.join(",") : "";
+
+    var dietsParam = selectedDiet ? "&diet=" + selectedDiet : "";
+
+    var maxReadyTimeParam =
+      selectedMaxReadyTimes.length > 0
+        ? "&maxReadyTime=" + Math.min(...selectedMaxReadyTimes)
+        : "";
+
+    var cuisineParam = selectedCuisine ? "&cuisine=" + selectedCuisine : "";
+
+    // Constructed the full API URL for the Spoonacular complexSearch endpoint
+    var apiURLspoonacular =
+      "https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" +
+      selectedIngredients +
+      "&number=10&addRecipeInformation=true" +
+      intolerancesParam +
+      maxReadyTimeParam +
+      dietsParam +
+      cuisineParam +
+      "&apiKey=" +
+      spoonacularApiKey;
 ```
 
 ## Learning Points
 
 - Furthered knowledge of local storage, saving and retrieving
-- Learned how to use the spread operator
-- learned how to utilize 3rd party APIs, calling, response, etc.
-- Learned how add icons
+- Learned how to use the .map, .some, forEach methods
+- Furthered our knowledge of server side apis
+- Learned how use Bulma
+- learned how to make complex searchs on apis
 
 ## Authors Info
 
@@ -103,11 +126,8 @@ Didrik Lindberg
 [mdnwebdocs.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 (.map)
 
-[mdnwebdocs.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
-(.some)
-
-[mdnwebdocs.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
-(.some)
+[mdnwebdocs.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+(forEach)
 
 [mdnwebdocs.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 (.some)
